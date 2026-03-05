@@ -29,6 +29,10 @@ public class Heroi{
         this.escudo = escudo + shield;
     }
 
+    public void resetaEscudo(){
+        this.escudo = 0; //chamar toda vez que reiniciar a jogada
+    }
+
     public boolean estaVivo(){
         if (vida <= 0){ //se ele morreu, retorna falso
             return false;
