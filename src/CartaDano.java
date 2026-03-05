@@ -27,3 +27,5 @@ public class CartaDano {
     }
     
 }
+
+//muito pouco dano, trivial
