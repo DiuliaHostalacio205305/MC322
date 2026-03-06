@@ -10,11 +10,11 @@ public class Heroi{
     private int cafeina;
 
 
-    public Heroi(String nome, int vida, int escudo, int energia){
+    public Heroi(String nome, int vida, int escudo, int cafeina){
         this.nome = nome;
         this.vida = vida;
         this.escudo = escudo;
-        this.cafeina = energia;
+        this.cafeina = cafeina;
     }
 
     public void receberDano(int dano){

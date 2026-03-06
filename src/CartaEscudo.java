@@ -6,15 +6,16 @@ public class CartaEscudo {
     
     private String nome;
     private int custo;
+    private int escudo;
 
-    public CartaEscudo(String nome, int custo){
+    public CartaEscudo(String nome, int custo, int escudo){
         this.nome = nome;
         this.custo = custo;
+        this.escudo = escudo;
     }
 
     public void usar(Heroi heroi){
-        int shield = 2;
-        heroi.ganharEscudo(shield);
+        heroi.ganharEscudo(escudo);
         heroi.gastaEnergia();
     }
 
@@ -24,6 +25,10 @@ public class CartaEscudo {
 
     public int getCusto(){
         return this.custo;
+    }
+
+    public int getEscudo(){
+        return escudo;
     }
     
 }
