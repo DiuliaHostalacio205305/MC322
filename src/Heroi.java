@@ -7,14 +7,14 @@ public class Heroi{
     private String nome;
     private int vida;
     private int escudo;
-    private int energia;
+    private int cafeina;
 
 
     public Heroi(String nome, int vida, int escudo, int energia){
         this.nome = nome;
         this.vida = vida;
         this.escudo = escudo;
-        this.energia = energia;
+        this.cafeina = energia;
     }
 
     public void receberDano(int dano){
@@ -22,7 +22,7 @@ public class Heroi{
     }
 
     public void gastaEnergia(){
-        this.energia = energia - 1;
+        this.cafeina = cafeina - 1;
     }
 
     public void ganharEscudo(int shield){ //muda internamente o valor das variáveis
@@ -46,5 +46,17 @@ public class Heroi{
 
     public int getVida(){
         return this.vida;
+    }
+
+    public int getEscudo(){
+        return escudo;
+    }
+
+    public int getCafeina(){
+        return cafeina;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
