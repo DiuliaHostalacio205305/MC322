@@ -24,7 +24,7 @@ public class Inimigo{
     }
 
     public void atacar(Heroi heroi){
-        int dano = (heroi.getVida() * 10) / 100;
+        int dano = 5; //DIU - eu mudei o dano pq por algum motivo o heroi travava em 9 de vida
         heroi.receberDano(dano);
     }
 
@@ -42,6 +42,9 @@ public class Inimigo{
     public int getVida(){
         return this.vida;
     }
+
+    public int getEscudo(){
+        return this.escudo;
+    }
 }
 
-//só pra testar o push

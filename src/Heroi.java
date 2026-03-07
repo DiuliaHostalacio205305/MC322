@@ -55,6 +55,10 @@ public class Heroi{
     public int getCafeina(){
         return cafeina;
     }
+    
+    public void setCafeina(int cafeina) {
+        this.cafeina = cafeina;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
