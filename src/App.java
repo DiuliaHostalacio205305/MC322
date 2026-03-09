@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class App {
+    
+    public static final String colorReset = "\u001B[0m";
+    public static final String colorPurple = "\u001B[35m";
+    public static final String colorCyan = "\u001B[36m";
     public static void main(String[] args) throws InterruptedException{
         Heroi heroi = new Heroi("Calouro", 40, 0, 3);
         Inimigo inimigo = new Inimigo("MC102", 20, 0);
@@ -14,10 +18,10 @@ public class App {
         
         Scanner scanner = new Scanner(System.in);
         String nome_personagem = scanner.nextLine(); //lê o que foi digitado pelo usuário
-        System.out.println("\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + nome_personagem + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n"); 
+        System.out.println(colorPurple + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + nome_personagem + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + colorReset); 
         heroi.setNome(nome_personagem); //atribuí o novo nome ao personagem
         //eu acho que podia ter alguma interação aqui, pra n aparecer tudo de uma vez no terminal, tipo "Está pronto?", ou colocar o análogo de sleep aq em java q eu n sei como faz
-        System.out.println("Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n");
+        System.out.println(colorCyan + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n" + colorReset);
         Thread.sleep(5000);
 
         CartaDano cartaDano = new CartaDano("ataque", 1, 3);
@@ -49,7 +53,7 @@ public class App {
                 System.out.println("Digite o número da ação escolhida:");            
                 acao = scanner.nextInt();
                 if(acao != 3){
-                    System.out.print("\nÓtima escolha! Você escolheu: ");
+                    System.out.print(colorPurple + "\nÓtima escolha! Você escolheu: " + colorReset);
                 }
             
                 if(acao == 1){ //escolheu atacar
