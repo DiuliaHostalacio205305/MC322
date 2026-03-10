@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class App {
-    
+
     //Definidores de cor
     public static final String colorReset = "\u001B[0m";
     public static final String colorPurple = "\u001B[35m";
@@ -9,6 +9,9 @@ public class App {
     public static final String colorRed = "\u001B[31m";
     public static final String colorGreen = "\u001B[32m";
     public static final String colorYellow = "\u001B[33m";
+    public static final String colorLightGreen = "\u001B[92m";
+    public static final String colorOrange = "\u001B[38;5;208m";
+    public static final String colorPink = "\u001B[95m";
 
     public static void main(String[] args) throws InterruptedException{
         
@@ -33,117 +36,31 @@ public class App {
         String nome_personagem = scanner.nextLine(); //lê o que foi digitado pelo usuário
         heroi.setNome(nome_personagem); //atribuí o novo nome ao personagem
 
-
-        
-
         /*PRIMEIRA RODADA*/
-        //DIU - tem q corrigir q ta rodando a primeira rodada e dps o cara volta com 3 cafeinas ao inves de 2
-
         System.out.println(colorPurple + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + nome_personagem + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + colorReset); 
         System.out.println(colorCyan + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n" + colorReset);
-        Thread.sleep(5000);
-
-        System.out.println(colorGreen + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "\n- Cafeína: " + heroi.getCafeina() + "\n\n--------------------\n" + colorReset);
-        System.out.println(colorRed + "--- Inimigo ---\n\n- Nome: MC102\n- Vida: " + inimigo.getVida() + " Hp\n- Escudo: " + inimigo.getEscudo() + colorReset);
-        
-        System.out.println("\nPreparado? Escolha uma ação:\n\n- 1: Usar Carta de Ataque -> Cafeína - 1\n- 2: Usar Carta de Escudo -> Cafeína - 1\n- 3: Encerrar turno\n\n- Cafeína disponível: " + heroi.getCafeina() + "\n");
-        System.out.println("Digite o número da ação escolhida:");            
-                
-        //DIU- eu acho q dava pra juntar esse monte de ifs e jogar numa função separada
+        Thread.sleep(3000);
+        printaStats(heroi, inimigo);
+        textoEscolha(heroi);
         acao = scanner.nextInt();
-        if(acao != 3){
-            System.out.print(colorPurple + "\nÓtima escolha! Você escolheu: " + colorReset);
-        }
-            
-       if(acao == 1){ //escolheu atacar
-            System.out.println(cartaDano.getName() + ", uma carta de ataque!"); //colocar tipo o do personagem: nome, habilidade, descrição, etc pra ambientar o jogo
-            cartaDano.usar(inimigo, heroi);
-            System.out.println("\nVida de " + inimigo.getName() + " = " + inimigo.getVida() + "/" + hpInimigo);
-            System.out.println("Cafeína disponível: " + heroi.getCafeina());
-            Thread.sleep(3500);
-            if(heroi.getCafeina() == 0){
-                System.out.println("\nAcabou sua cafeína :(");
-            }
-        }
-        else if(acao == 2){ //escolheu usar escudo
-            System.out.println(cartaEscudo.getName() + ", uma carta de escudo!");
-            cartaEscudo.usar(heroi);
-            System.out.println("\nEscudo de " + heroi.getName() + " = " + heroi.getEscudo()); //colocar um limite de escudo, tipo, escudomax = 3 e ai quando printar fazer 2/3
-            System.out.println("Cafeína disponível: " + heroi.getCafeina());
-            Thread.sleep(3500);
-            if(heroi.getCafeina() == 0){
-                System.out.println("Acabou sua cafeína :(");
-            }
-        }
-        else if(acao == 3){ //escolheu encerrar o turno
-            System.out.println("Certeza?! Tá bom... Encerrando turno");
-        }
-        else { //o usuário (burro) não digitou nenhum dos 3
-            System.out.println("Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, e 3 e aperte Enter");
-        }
-
+        escolhaAcoesHeroi(acao, heroi, inimigo, cartaDano, cartaEscudo, hpInimigo);
 
         /*RODADAS SEGUINTES*/
         while(heroi.estaVivo() && inimigo.estaVivo()){ //agora roda até um dos 2 morrer
-
-            //DIU - eu criei um loop pra rodada do jogador, talvez seja interessante tirar a primeira ação daqui de dentro  
-            //SOF - acho que vai ter que tirar msm, até pra colocar uma escrita diferente
-            
-            //reseta a ação e a cafeína e o escudo
-            acao = 0;
-            heroi.setCafeina(3);
-            heroi.resetaEscudo();
 
             //Turno do heroí
             while (acao !=3 && heroi.getCafeina() != 0){
                 System.err.println(colorGreen + "\nÉ sua vez novamente!" + colorReset);
                 Thread.sleep(3500);
-                
-                System.out.println(colorGreen + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "\n- Cafeína: " + heroi.getCafeina() + "\n\n--------------------\n" + colorReset);
-                System.out.println(colorRed + "--- Inimigo ---\n\n- Nome: MC102\n- Vida: " + inimigo.getVida() + " Hp\n- Escudo: " + inimigo.getEscudo() + colorReset);
-                System.out.println("Escolha uma ação:\n\n- 1: Usar Carta de Ataque -> Cafeína - 1\n- 2: Usar Carta de Escudo -> Cafeína - 1\n- 3: Encerrar turno\n\n- Cafeína disponível: " + heroi.getCafeina() + "\n");
-                System.out.println("Digite o número da ação escolhida:");            
-                
-                //DIU- eu acho q dava pra juntar esse monte de ifs e jogar numa função separada
+                printaStats(heroi, inimigo);
+                textoEscolha(heroi);
                 acao = scanner.nextInt();
-                if(acao != 3){
-                    System.out.print(colorPurple + "\nÓtima escolha! Você escolheu: " + colorReset);
-                }
-            
-                if(acao == 1){ //escolheu atacar
-                    System.out.println(cartaDano.getName() + ", uma carta de ataque!"); //colocar tipo o do personagem: nome, habilidade, descrição, etc pra ambientar o jogo
-                    cartaDano.usar(inimigo, heroi);
-                    if(inimigo.getVida() <= 0){
-                        System.out.println("\nVida de " + inimigo.getName() + " = 0/" + hpInimigo);
-                        break; //mata o while pra consertar o problema dele atacar dps de morto 
-                    }
-                    System.out.println("\nVida de " + inimigo.getName() + " = " + inimigo.getVida() + "/" + hpInimigo);
-                    System.out.println("Cafeína disponível: " + heroi.getCafeina());
-                    Thread.sleep(3500);
-                    if(heroi.getCafeina() == 0){
-                        System.out.println("\nAcabou sua cafeína :(");
-                    }
-                }
-                else if(acao == 2){ //escolheu usar escudo
-                    System.out.println(cartaEscudo.getName() + ", uma carta de escudo!");
-                    cartaEscudo.usar(heroi);
-                    System.out.println("\nEscudo de " + heroi.getName() + " = " + heroi.getEscudo()); //colocar um limite de escudo, tipo, escudomax = 3 e ai quando printar fazer 2/3
-                    System.out.println("Cafeína disponível: " + heroi.getCafeina());
-                    Thread.sleep(3500);
-                    if(heroi.getCafeina() == 0){
-                        System.out.println("Acabou sua cafeína :(");
-                    }
-                }
-                else if(acao == 3){ //escolheu encerrar o turno
-                    System.out.println("Certeza?! Tá bom... Encerrando turno");
-                }
-                else { //o usuário (burro) não digitou nenhum dos 3
-                    System.out.println("Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, e 3 e aperte Enter");
+                escolhaAcoesHeroi(acao, heroi, inimigo, cartaDano, cartaEscudo, hpInimigo);
+                if (algmMorreu(inimigo, hpInimigo)){
+                    break;
                 }
             }
 
-
-        
             //Turno do inimigo
             if(inimigo.getVida() > 0){ //o inimigo só ataca se estiver vivo
                 System.out.println("\nAgora é a vez de " + inimigo.getName());
@@ -157,9 +74,13 @@ public class App {
                 Thread.sleep(3500);
                 //DIU- tirei o negocio q tava repetitivo msm e mandei o é a sua vez pra cima
             }
+
+            //Reseta a ação e a cafeína e o escudo
+            acao = 0;
+            heroi.setCafeina(3);
+            heroi.resetaEscudo();
         }
     
-
         if(heroi.getVida() < 0){
             System.out.println("\nVocê reprovou :(");
         }                inimigo.atacar(heroi); //colocar uma função random aq pra variar entre ataque e escudo pro inimigo
@@ -168,10 +89,71 @@ public class App {
         }
         scanner.close();
     }
+
+
+    /*FUNÇÕES UTÉIS PARA A ORGANIZAÇÃO*/
+    
+    //Verifica a quantidade de cafeína restante e printa o resultado
+    public static void infosCafeina(Heroi heroi) throws InterruptedException{
+        System.out.println(colorYellow + "Cafeína disponível: " + heroi.getCafeina() + colorReset);
+        Thread.sleep(3500);
+        if(heroi.getCafeina() == 0){
+            System.out.println(colorRed + "\nAcabou sua cafeína :(" + colorReset);
+        }
+    }
+    
+    //Define o que acontece dependendo do número da ação escolhida pelo usuário
+    public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, CartaDano cartaDano, CartaEscudo cartaEscudo, int hpInimigo) throws InterruptedException{
+        if(acao != 3){
+            System.out.print(colorPurple + "\nÓtima escolha! Você escolheu: " + colorReset);
+        }
+            
+       if(acao == 1){ //escolheu atacar
+            System.out.println(cartaDano.getName() + ", uma carta de ataque!"); //colocar tipo o do personagem: nome, habilidade, descrição, etc pra ambientar o jogo
+            cartaDano.usar(inimigo, heroi);
+            
+            System.out.println("\nVida de " + inimigo.getName() + " = " + inimigo.getVida() + "/" + hpInimigo);
+            infosCafeina(heroi);
+        }
+        else if(acao == 2){ //escolheu usar escudo
+            System.out.println(cartaEscudo.getName() + ", uma carta de escudo!");
+            cartaEscudo.usar(heroi);
+            System.out.println(colorCyan + "\nEscudo de " + heroi.getName() + " = " + heroi.getEscudo() + colorReset); //colocar um limite de escudo, tipo, escudomax = 3 e ai quando printar fazer 2/3
+            infosCafeina(heroi);
+        }
+        else if(acao == 3){ //escolheu encerrar o turno
+            System.out.println("Certeza?! Tá bom... Encerrando turno");
+        }
+        else { //o usuário (burro) não digitou nenhum dos 3
+            System.out.println("Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, e 3 e aperte Enter");
+        }
+    }
+
+    //Printa nome, vida e escudo tanto do herói, quanto do inimigo
+    public static void printaStats(Heroi heroi, Inimigo inimigo){
+        System.out.println(colorGreen + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "\n- Cafeína: " + heroi.getCafeina() + "\n\n--------------------\n" + colorReset);
+        System.out.println(colorRed + "--- Inimigo ---\n\n- Nome: MC102\n- Vida: " + inimigo.getVida() + " Hp\n- Escudo: " + inimigo.getEscudo() + colorReset);
+    }
+
+    //Retorna true se o inimigo morreu
+    public static boolean algmMorreu(Inimigo inimigo, int hpInimigo){
+        if(inimigo.getVida() <= 0){
+            System.out.println("\nVida de " + inimigo.getName() + " = 0/" + hpInimigo);
+            return true;
+        }
+        return false;
+    }
+
+    //Printa as infos pro user saber qual número apertar
+    public static void textoEscolha(Heroi heroi){
+        System.out.println("\nEscolha uma ação:\n");
+        System.out.println(colorLightGreen +"- 1: Usar Carta de Ataque -> Cafeína - 1");
+        System.out.println(colorCyan +"- 2: Usar Carta de Escudo -> Cafeína - 1");
+        System.out.println(colorRed + "- 3: Encerrar turno\n");
+        System.out.println(colorYellow + "- Cafeína disponível: " + heroi.getCafeina() + colorReset+ "\n");
+        System.out.println("Digite o número da ação escolhida:");
+    }
 }
 
-
-//DIU tem q botar q a vida nn pode ser negativa e se vc mata o inimigo ele ainda da um ataque (resolvido)
-//tbm tem q botar pro turno do heroi encerrar imediatamente se o bixo morre (resolvido)
 //SOF - tem que levar em conta o escudo, pq se o héroi usa um escudo, e o bixo da 5 de dano, tira 5 da vida, ao inves de 2 do escudo e 3 da vida
 //eu coloquei uns Thread.sleep(4000), é pro tempo entre os prints, tá em milisegundo (4000 = 4s), se quiser aumentar/diminuir, fica a vontade
