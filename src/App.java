@@ -156,4 +156,4 @@ public class App {
 }
 
 //SOF - tem que levar em conta o escudo, pq se o héroi usa um escudo, e o bixo da 5 de dano, tira 5 da vida, ao inves de 2 do escudo e 3 da vida
-//eu coloquei uns Thread.sleep(4000), é pro tempo entre os prints, tá em milisegundo (4000 = 4s), se quiser aumentar/diminuir, fica a vontade
+//eu coloquei uns Thread.sleep(4000), é pro tempo entre os prints, tá em milisegundo (4000 = 4s), se quiser aumentar/diminuir, fica a  cu
