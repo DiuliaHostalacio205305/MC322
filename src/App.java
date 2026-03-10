@@ -20,8 +20,8 @@ public class App {
         Inimigo inimigo = new Inimigo("MC102", 20, 0);
         int hpInimigo = inimigo.getVida();
         int hpHeroi = heroi.getVida();
-        CartaDano cartaDano = new CartaDano("ataque", 1, 3);
-        CartaEscudo cartaEscudo = new CartaEscudo("escudo", 1, 2);
+        CartaDano cartaDano = new CartaDano("ir na monitoria", 1, 3);
+        CartaEscudo cartaEscudo = new CartaEscudo("baixar o vscode", 1, 2);
         int acao = 0;
 
         //Texto de inicialização
@@ -64,7 +64,7 @@ public class App {
             //Turno do inimigo
             if(inimigo.getVida() > 0){ //o inimigo só ataca se estiver vivo
                 System.out.println("\nAgora é a vez de " + inimigo.getName());
-                System.out.println(colorRed + "Ele usou: (insira nome legal) e deu 5 de dano. Ouch!" + colorReset);
+                System.out.println(colorRed + "Ele usou: 'time limit', você sofreu 5 de dano. Ouch!" + colorReset);
                 inimigo.atacar(heroi); //colocar uma função random aq pra variar entre ataque e escudo pro inimigo
                 if(heroi.getVida() <= 0){
                     System.out.println("Vida de " + heroi.getName() + " = 0/" + hpHeroi);
@@ -72,7 +72,6 @@ public class App {
                 }
                 System.out.println(colorGreen + "Vida de " + heroi.getName() + " = " + heroi.getVida() + "/" + hpHeroi + colorReset);
                 Thread.sleep(3500);
-                //DIU- tirei o negocio q tava repetitivo msm e mandei o é a sua vez pra cima
             }
 
             //Reseta a ação e a cafeína e o escudo

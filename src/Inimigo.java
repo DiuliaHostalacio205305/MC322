@@ -48,3 +48,4 @@ public class Inimigo{
     }
 }
 
+//Ideias de nomes de ataques: erro de compilação, esqueceu o ;, deu time limit, caiu num loop infinito

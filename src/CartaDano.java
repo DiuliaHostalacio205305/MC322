@@ -30,6 +30,5 @@ public class CartaDano {
     public int getDano(){
         return dano;
     }
-
 }
 
