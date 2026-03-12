@@ -24,7 +24,7 @@ public class Inimigo{
     }
 
     public void atacar(Heroi heroi){
-        int dano = 5; //DIU - eu mudei o dano pq por algum motivo o heroi travava em 9 de vida
+        int dano = 5; 
         heroi.receberDano(dano);
     }
 

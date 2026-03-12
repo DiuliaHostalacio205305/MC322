@@ -82,10 +82,10 @@ public class App {
         }
     
         if(heroi.getVida() < 0){
-            System.out.println("\nVocê reprovou :(");
+            System.out.println(colorRed + "\nOh nãooo... \nVocê reprovou :( \nPelo menos da para tentar de novo semestre que vem!" + colorReset);
         }                inimigo.atacar(heroi); //colocar uma função random aq pra variar entre ataque e escudo pro inimigo
         if(inimigo.getVida() < 0){
-                System.out.println("\nVocê passou :)");
+                System.out.println(colorGreen + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + colorReset);
         }
         scanner.close();
     }
@@ -111,8 +111,9 @@ public class App {
        if(acao == 1){ //escolheu atacar
             System.out.println(cartaDano.getName() + ", uma carta de ataque!");
             cartaDano.usar(inimigo, heroi);
-            
-            System.out.println("\nVida de " + inimigo.getName() + " = " + inimigo.getVida() + "/" + hpInimigo);
+            if (inimigo.getVida() >= 0){
+                System.out.println("\nVida de " + inimigo.getName() + " = " + inimigo.getVida() + "/" + hpInimigo);
+            }
             infosCafeina(heroi);
         }
         else if(acao == 2){ //escolheu usar escudo
