@@ -21,14 +21,15 @@ public class App {
         int hpInimigo = inimigo.getVida();
         int hpHeroi = heroi.getVida();
         CartaDano cartaDano = new CartaDano("ir na monitoria", 1, 3);
-        CartaEscudo cartaEscudo = new CartaEscudo("baixar o vscode", 1, 2);
+        CartaEscudo cartaEscudo = new CartaEscudo("baixar o vscode", 1, 1);
         int acao = 0;
 
         //Texto de inicialização
-        System.out.println("Olá! Seja bem-vindo ao curso de Computação da Unicamp! \nPara graduar você precisará passar por diversos desafios, bosses, irritações, surtos... Hm, quer dizer, adversários ótimos que te fortalecerão nessa aventura!");
+        System.out.println(colorCyan + "Olá! Seja bem-vindo ao curso de Computação da Unicamp!");
+        System.out.println("Para graduar você precisará passar por diversos desafios, bosses, irritações, surtos... Hm, quer dizer, adversários ótimos que te fortalecerão nessa aventura!");
         System.out.println("Hoje, você pode até estar começando como um jovem e ingênuo programador de Python, ou apenas entusiasta da programação... mas não se preocupe, logo você perceberá que nem tudo é tão fácil quanto Python parece ser\n");
-        System.out.println("Cada batalha será um passo em direção ao seu sonho de se tornar um Desenvolvedor Sênior, e cada inimigo que derrotar te deixará mais perto desse objetivo (e um pouco mais doido também)\n");
-        System.out.println("Durante os combates, você começa atacando, e pode escolher entre:\n1 - Atacar\n2 - Utilizar um escudo\n3 - Encerrar seu turno\n\nLembrando que cada ação gastará uma certa quantidade da sua cafeína total, o cafézinho que você toma do IC... então gaste com sabedoria, porque nem sempre a máquina de café funciona...\n");
+        System.out.println(colorPurple + "Cada batalha será um passo em direção ao seu sonho de se tornar um Desenvolvedor Sênior, e cada inimigo que derrotar te deixará mais perto desse objetivo (e um pouco mais doido também)\n" + colorReset);
+        System.out.println("Durante os combates, você começa atacando, e pode escolher entre:\n" + colorLightGreen + "1 - Atacar\n" + colorCyan + "2 - Utilizar um escudo\n" + colorRed + "3 - Encerrar seu turno\n\n" + colorYellow + "Lembrando que cada ação gastará uma certa quantidade da sua cafeína total, o cafézinho que você toma do IC... então gaste com sabedoria, porque nem sempre a máquina de café funciona...\n" + colorReset);
         System.out.println("Pronto para começar?\nEscolha um nome para o seu personagem:");
         
         //Define o nome do personagem
@@ -95,7 +96,7 @@ public class App {
     //Verifica a quantidade de cafeína restante e printa o resultado
     public static void infosCafeina(Heroi heroi) throws InterruptedException{
         System.out.println(colorYellow + "Cafeína disponível: " + heroi.getCafeina() + colorReset);
-        Thread.sleep(3500);
+        Thread.sleep(2500);
         if(heroi.getCafeina() == 0){
             System.out.println(colorRed + "\nAcabou sua cafeína :(" + colorReset);
         }
@@ -103,12 +104,12 @@ public class App {
     
     //Define o que acontece dependendo do número da ação escolhida pelo usuário
     public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, CartaDano cartaDano, CartaEscudo cartaEscudo, int hpInimigo) throws InterruptedException{
-        if(acao != 3){
+        if(acao == 1 || acao == 2){
             System.out.print(colorPurple + "\nÓtima escolha! Você escolheu: " + colorReset);
         }
             
        if(acao == 1){ //escolheu atacar
-            System.out.println(cartaDano.getName() + ", uma carta de ataque!"); //colocar tipo o do personagem: nome, habilidade, descrição, etc pra ambientar o jogo
+            System.out.println(cartaDano.getName() + ", uma carta de ataque!");
             cartaDano.usar(inimigo, heroi);
             
             System.out.println("\nVida de " + inimigo.getName() + " = " + inimigo.getVida() + "/" + hpInimigo);
@@ -117,20 +118,20 @@ public class App {
         else if(acao == 2){ //escolheu usar escudo
             System.out.println(cartaEscudo.getName() + ", uma carta de escudo!");
             cartaEscudo.usar(heroi);
-            System.out.println(colorCyan + "\nEscudo de " + heroi.getName() + " = " + heroi.getEscudo() + colorReset); //colocar um limite de escudo, tipo, escudomax = 3 e ai quando printar fazer 2/3
+            System.out.println(colorCyan + "\nEscudo de " + heroi.getName() + " = " + heroi.getEscudo() + "/3" + colorReset); 
             infosCafeina(heroi);
         }
         else if(acao == 3){ //escolheu encerrar o turno
-            System.out.println("Certeza?! Tá bom... Encerrando turno");
+            System.out.println(colorRed + "Certeza?! Tá bom... Encerrando turno" + colorReset);
         }
         else { //o usuário (burro) não digitou nenhum dos 3
-            System.out.println("Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, e 3 e aperte Enter");
+            System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, e 3 e aperte Enter" + colorReset);
         }
     }
 
     //Printa nome, vida e escudo tanto do herói, quanto do inimigo
     public static void printaStats(Heroi heroi, Inimigo inimigo){
-        System.out.println(colorGreen + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "\n- Cafeína: " + heroi.getCafeina() + "\n\n--------------------\n" + colorReset);
+        System.out.println(colorGreen + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "/3" + "\n- Cafeína: " + heroi.getCafeina() + "\n\n--------------------\n" + colorReset);
         System.out.println(colorRed + "--- Inimigo ---\n\n- Nome: MC102\n- Vida: " + inimigo.getVida() + " Hp\n- Escudo: " + inimigo.getEscudo() + colorReset);
     }
 
@@ -153,6 +154,3 @@ public class App {
         System.out.println("Digite o número da ação escolhida:");
     }
 }
-
-//SOF - tem que levar em conta o escudo, pq se o héroi usa um escudo, e o bixo da 5 de dano, tira 5 da vida, ao inves de 2 do escudo e 3 da vida
-//eu coloquei uns Thread.sleep(4000), é pro tempo entre os prints, tá em milisegundo (4000 = 4s), se quiser aumentar/diminuir, fica a  cu

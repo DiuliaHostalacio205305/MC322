@@ -18,7 +18,15 @@ public class Heroi{
     }
 
     public void receberDano(int dano){
-        this.vida = vida - dano;
+        int danoRestante = dano;
+        if(escudo - dano <= 0){ //se der mais dano que o escudo do personagem
+            danoRestante = -1*(escudo - dano);
+            escudo = 0;
+            vida = vida - danoRestante; //zera o escudo e subtrai o restante da vida
+        }
+        else {
+            escudo = escudo - dano; //se o escudo for maior que o dano, só tira o escudo
+        }
     }
 
     public void gastaEnergia(){
