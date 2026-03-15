@@ -2,29 +2,18 @@
 - Atributos: nome, custo
 - Métodos: usar */
 
-public class CartaEscudo {
-    
-    private String nome;
-    private int custo;
+public class CartaEscudo extends Carta {
+
     private int escudo;
 
-    public CartaEscudo(String nome, int custo, int escudo){
-        this.nome = nome;
-        this.custo = custo;
+    public CartaEscudo(String nome, String descricao, int custo, int escudo){
+        super(nome, descricao, custo);
         this.escudo = escudo;
     }
 
-    public void usar(Heroi heroi){
-        heroi.ganharEscudo(escudo);
-        heroi.gastaEnergia();
-    }
-
-    public String getName(){
-        return this.nome;
-    }
-
-    public int getCusto(){
-        return this.custo;
+    @Override
+    public void usar(Tabuleiro tabuleiro){
+        tabuleiro.getHeroi().ganharEscudo(escudo);
     }
 
     public int getEscudo(){

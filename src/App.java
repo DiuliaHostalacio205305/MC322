@@ -20,8 +20,9 @@ public class App {
         Inimigo inimigo = new Inimigo("MC102", 20, 0);
         int hpInimigo = inimigo.getVida();
         int hpHeroi = heroi.getVida();
-        CartaDano cartaDano = new CartaDano("ir na monitoria", 1, 3);
-        CartaEscudo cartaEscudo = new CartaEscudo("baixar o vscode", 1, 1);
+        Carta cartaDano = new CartaDano("nome", "descricao", 2, 5);
+        Carta cartaEscudo = new CartaEscudo("escudo", "descricao", 1, 2);
+        Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo);
         int acao = 0;
 
         //Texto de inicialização
@@ -110,7 +111,7 @@ public class App {
             
        if(acao == 1){ //escolheu atacar
             System.out.println(cartaDano.getName() + ", uma carta de ataque!");
-            cartaDano.usar(inimigo, heroi);
+            cartaDano.usar(inimigo, heroi); 
             if (inimigo.getVida() >= 0){
                 System.out.println("\nVida de " + inimigo.getName() + " = " + inimigo.getVida() + "/" + hpInimigo);
             }

@@ -2,29 +2,19 @@
 - Atributos: nome, custo
 - Métodos: usar*/
 
-public class CartaDano {
+public class CartaDano extends Carta{
     
-    private String nome;
-    private int custo;
     private int dano;
 
-    public CartaDano(String nome, int custo, int dano){
-        this.nome = nome;
-        this.custo = custo;
+    public CartaDano(String nome, String descricao, int custo, int dano){
+        super(nome, nome, custo);
         this.dano = dano;
     }
 
-    public void usar(Inimigo inimigo, Heroi heroi){
-        inimigo.receberDano(dano);
-        heroi.gastaEnergia();
-    }
-
-    public String getName(){
-        return this.nome;
-    }
-
-    public int getCusto(){
-        return this.custo;
+    @Override
+    public void usar(Tabuleiro tabuleiro){
+        tabuleiro.getInimigo().receberDano(dano);
+        tabuleiro.getHeroi().gastaEnergia();
     }
     
     public int getDano(){
