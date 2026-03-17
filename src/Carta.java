@@ -10,13 +10,14 @@ public class Carta {
         this.custo = custo;
     }
 
-    public void usar(Tabuleiro tabuleiro){
-        System.out.println("Usando a carta: " + nome + "\nCusto: " + custo);
-        System.out.println("Sobre a carta: " + descricao);
-    }
+    public void usar(Tabuleiro tabuleiro){}
 
     public String getName(){
         return nome;
+    }
+
+    public String getDescricao(){
+        return descricao;
     }
 
     public int getCusto(){

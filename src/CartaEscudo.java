@@ -13,7 +13,9 @@ public class CartaEscudo extends Carta {
 
     @Override
     public void usar(Tabuleiro tabuleiro){
+        System.out.println("\nUsando a carta: " + getName());
         tabuleiro.getHeroi().ganharEscudo(escudo);
+        tabuleiro.getHeroi().gastaEnergia(this.getCusto());
     }
 
     public int getEscudo(){

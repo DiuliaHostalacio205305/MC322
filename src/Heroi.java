@@ -11,8 +11,8 @@ public class Heroi extends Entidade{
         this.cafeina = cafeina;
     }
 
-    public void gastaEnergia(){
-        this.cafeina = cafeina - 1;
+    public void gastaEnergia(int quantidade){
+        this.cafeina = cafeina - quantidade;
     }
 
     public int getCafeina(){

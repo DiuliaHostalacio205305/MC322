@@ -1,4 +1,4 @@
-public class Entidade {
+public abstract class Entidade {
     
     private String nome;
     private int vida;
