@@ -60,26 +60,28 @@ public class Tabuleiro {
     }
 
     public void usarCarta(int indice, Tabuleiro tabuleiro){
-        if (indice >= 0 && indice < mao.size()){ //lembrar que o indice começa em 0
-            Carta cartaEscolhida = mao.remove(indice);
+        if (indice - 1 >= 0 && indice <= mao.size()){ //lembrar que o indice começa em 0
+            Carta cartaEscolhida = mao.remove(indice - 1);
             cartaEscolhida.usar(tabuleiro);
             descarte.push(cartaEscolhida);
         }
     }
 
+    //Mostra a mão do jogador
     public void exibirMao(){
-        System.out.println("\n--- Sua Mão ---");
+        System.out.println("\n--- Sua Mão ---\n");
 
-        for (int i = 0; i < mao.size(); i++) {
-            Carta carta = mao.get(i);
+        for (int i = 1; i <= mao.size(); i++) {
+            Carta carta = mao.get(i - 1);
             //Exibe o índice (i) para o jogador saber o que digitar
             System.out.println("(" + i + ") " + carta.getName());
-            System.out.println(carta.getDescricao());
+            System.out.println("Descrição: " + carta.getDescricao() + "\n");
         }
         System.out.println("--------------------\n");
 
     }
 
+    //Limpa a mão do jogador no fim da rodada
     public void limparMao(){
         while (!mao.isEmpty()) {
         descarte.push(mao.remove(0)); //Remove da mão e joga no descarte quando acaba o turno do heroí

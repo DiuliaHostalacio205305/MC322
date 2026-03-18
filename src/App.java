@@ -22,9 +22,6 @@ public class App {
         
         int hpInimigo = inimigo.getVida();
         int hpHeroi = heroi.getVida();
-        Carta cartaDano = new CartaDano("nome", "descricao", 2, 5);
-        Carta cartaEscudo = new CartaEscudo("escudo", "descricao", 1, 2);
-
         tabuleiro.iniciarPartida(); //Preenche e embaralha o deck de cartas
 
         int acao = 0;
@@ -50,19 +47,19 @@ public class App {
         printaStats(heroi, inimigo);
         textoEscolha(heroi, tabuleiro);
         acao = scanner.nextInt();
-        escolhaAcoesHeroi(acao, heroi, inimigo, cartaDano, cartaEscudo, hpInimigo, tabuleiro);
+        escolhaAcoesHeroi(acao, heroi, inimigo, hpInimigo, tabuleiro);
 
         /*RODADAS SEGUINTES*/
         while(heroi.estaVivo() && inimigo.estaVivo()){ //agora roda até um dos 2 morrer
 
             //Turno do heroí
-            while (acao !=3 && heroi.getCafeina() != 0){
+            while (acao !=5 && heroi.getCafeina() >= 0){
                 System.err.println(colorGreen + "\nÉ sua vez novamente!" + colorReset);
                 Thread.sleep(3500);
                 printaStats(heroi, inimigo);
                 textoEscolha(heroi, tabuleiro);
                 acao = scanner.nextInt();
-                escolhaAcoesHeroi(acao, heroi, inimigo, cartaDano, cartaEscudo, hpInimigo, tabuleiro);
+                escolhaAcoesHeroi(acao, heroi, inimigo, hpInimigo, tabuleiro);
                 if (algmMorreu(inimigo, hpInimigo)){
                     break;
                 }
@@ -111,15 +108,18 @@ public class App {
     }
     
     //Define o que acontece dependendo do número da ação escolhida pelo usuário
-    public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, Carta cartaDano, Carta cartaEscudo, int hpInimigo, Tabuleiro tabuleiro) throws InterruptedException{
-        if (acao == 3){ //escolheu encerrar o turno
+    public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, int hpInimigo, Tabuleiro tabuleiro) throws InterruptedException{
+        if (acao == 5){ //escolheu encerrar o turno
             System.out.println(colorRed + "Certeza?! Tá bom... Encerrando turno" + colorReset);
+        } 
+        else if (heroi.getCafeina() - 1 < 0){ //AQUI ao invés de ser -1 precisa ser - custo da carta, n terminei
+            System.out.println(colorRed + "Hm... Você não tem cafeína suficiente pra isso... Escolha uma outra ação (ou tenta pegar um café lá no IC, se a máquina te permitir)" + colorReset);
         }
-        else if (acao == 0 || acao == 1 || acao == 2){
+        else if (acao == 1 || acao == 2 || acao == 3 || acao == 4){
             tabuleiro.usarCarta(acao, tabuleiro);
         }
         else { //o usuário (burro) não digitou nenhum dos 3
-            System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, e 3 e aperte Enter" + colorReset);
+            System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, 3, 4 ou 5 e aperte Enter" + colorReset);
         }
     }
 
@@ -140,14 +140,14 @@ public class App {
 
     //Printa as infos pro user saber qual número apertar
     public static void textoEscolha(Heroi heroi, Tabuleiro tabuleiro){
-        System.out.println("Escolha uma carta (0-2) ou 3 para encerrar:" + colorCyan);
+        System.out.println("Escolha uma carta (1-4) ou 5 para encerrar:" + colorCyan);
         tabuleiro.exibirMao();
         System.out.println(colorYellow + "- Cafeína disponível: " + heroi.getCafeina() + colorReset+ "\n");
         System.out.println("Digite o número da ação escolhida:");
     }
 
     public static void comprarCartas(Tabuleiro tabuleiro){
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             tabuleiro.comprarCarta();
         }
     }
