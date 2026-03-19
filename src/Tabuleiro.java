@@ -87,6 +87,10 @@ public class Tabuleiro {
         descarte.push(mao.remove(0)); //Remove da mão e joga no descarte quando acaba o turno do heroí
         }
     }
+
+    public List<Carta> getMao(){
+        return mao;
+    }
 }
 
 

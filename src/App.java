@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -53,7 +54,7 @@ public class App {
         while(heroi.estaVivo() && inimigo.estaVivo()){ //agora roda até um dos 2 morrer
 
             //Turno do heroí
-            while (acao !=5 && heroi.getCafeina() >= 0){
+            while (acao !=5 && heroi.getCafeina() > 0){
                 System.err.println(colorGreen + "\nÉ sua vez novamente!" + colorReset);
                 Thread.sleep(3500);
                 printaStats(heroi, inimigo);
@@ -109,17 +110,22 @@ public class App {
     
     //Define o que acontece dependendo do número da ação escolhida pelo usuário
     public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, int hpInimigo, Tabuleiro tabuleiro) throws InterruptedException{
+        List<Carta> mao = tabuleiro.getMao(); //acessa a mão do jogador
         if (acao == 5){ //escolheu encerrar o turno
             System.out.println(colorRed + "Certeza?! Tá bom... Encerrando turno" + colorReset);
         } 
-        else if (heroi.getCafeina() - 1 < 0){ //AQUI ao invés de ser -1 precisa ser - custo da carta, n terminei
-            System.out.println(colorRed + "Hm... Você não tem cafeína suficiente pra isso... Escolha uma outra ação (ou tenta pegar um café lá no IC, se a máquina te permitir)" + colorReset);
-        }
-        else if (acao == 1 || acao == 2 || acao == 3 || acao == 4){
-            tabuleiro.usarCarta(acao, tabuleiro);
-        }
-        else { //o usuário (burro) não digitou nenhum dos 3
-            System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, 3, 4 ou 5 e aperte Enter" + colorReset);
+        else if(acao - 1 <= mao.size()){ //faz isso apenas se o jogador digitar uma posição válida da mão
+            Carta cartaEscolhida = mao.get(acao - 1); //pega a carta específica escolhida
+            int custo = cartaEscolhida.getCusto(); //pega o custo da carta
+            if (heroi.getCafeina() - custo < 0){ //AQUI ao invés de ser -1 precisa ser - custo da carta, n terminei
+                System.out.println(colorRed + "Hm... Você não tem cafeína suficiente pra isso... Escolha uma outra ação (ou tenta pegar um café lá no IC, se a máquina te permitir)" + colorReset);
+            }
+            else if (acao == 1 || acao == 2 || acao == 3 || acao == 4){
+                tabuleiro.usarCarta(acao, tabuleiro);
+            }
+            else { //o usuário (burro) não digitou nenhum dos 3
+                System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, 3, 4 ou 5 e aperte Enter" + colorReset);
+            }
         }
     }
 
