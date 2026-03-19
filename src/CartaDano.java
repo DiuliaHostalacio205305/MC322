@@ -20,7 +20,13 @@ public class CartaDano extends Carta{
         System.out.println("Você deu " + getDano() + " de dano!");
         tabuleiro.getInimigo().receberDano(dano);
         tabuleiro.getHeroi().gastaEnergia(this.getCusto());
-        System.out.println(colorRed + "Vida de " + tabuleiro.getInimigo().getName() + ": " + tabuleiro.getInimigo().getVida() + "/" + tabuleiro.getInimigo().getvidaMax() + colorReset);
+        if(tabuleiro.getInimigo().getVida() <= 0) {
+            System.out.println(colorRed + "Vida de " + tabuleiro.getInimigo().getName() + ": 0/" + tabuleiro.getInimigo().getvidaMax() + colorReset);
+
+        } 
+        else{
+            System.out.println(colorRed + "Vida de " + tabuleiro.getInimigo().getName() + ": " + tabuleiro.getInimigo().getVida() + "/" + tabuleiro.getInimigo().getvidaMax() + colorReset);
+        }
     }
     
     public int getDano(){

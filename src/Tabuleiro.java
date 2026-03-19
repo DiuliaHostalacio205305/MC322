@@ -26,9 +26,9 @@ public class Tabuleiro {
     public void iniciarPartida(){
         
         //Criação das cartas de dano
-        compra.push(new CartaDano("Ir na monitoria do Gustavo", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 2, 5));
+        compra.push(new CartaDano("Ir na monitoria do Gustavo", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 3, 6));
         compra.push(new CartaDano("Ir na monitoria da Lia", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 2, 5));
-        compra.push(new CartaDano("Ir na monitoria do Giovanne", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 2, 5));
+        compra.push(new CartaDano("Ir na monitoria do Giovanne", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 3, 6));
         compra.push(new CartaDano("Ir na monitoria da Mariana", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 2, 5));
         compra.push(new CartaDano("Ir na aula", "Você vai na aula e aprende a matéria \nCusto: 2 cafeína \nDano: 3", 2, 3));
         compra.push(new CartaDano("Pesquisar na Internet", "Você da uma pesquisada para resolver uma dúvida \nCusto: 1 cafeína \nDano: 3", 1, 3));
@@ -36,11 +36,12 @@ public class Tabuleiro {
         
 
         //Criação das cartas de escudo
-        compra.push(new CartaEscudo("Baixar o VScode", "Você baixa o VScode, facilitando muito sua vida ao codar \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+        compra.push(new CartaEscudo("Baixar o VScode", "Você baixa o VScode, facilitando muito sua vida ao codar \nCusto: 1 cafeína \nEscudo: 1", 1, 2 ));
         compra.push(new CartaEscudo("Comprar um notebook com 16gb de RAM", "Você junta uma grana e compra um notebook potente \nCusto: 2 cafeína \nEscudo: 3", 2, 3 ));
         compra.push(new CartaEscudo("Mudar para Linux", "Você toma a decisão difícil de abandonar o Windows e se arriscar no mundo do Linux \nCusto: 2 cafeína \nEscudo: 3", 2, 3 ));
         compra.push(new CartaEscudo("Desinstalar o TikTok", "Você toma vergonha na cara e desisntala o TikTok para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
         compra.push(new CartaEscudo("Desinstalar o Instagram", "Você toma vergonha na cara e desisntala o Instagram para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+        compra.push(new CartaEscudo("Desinstalar o Twitter", "Você toma vergonha na cara e desisntala o Instagram para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
         Collections.shuffle(compra);
     }
 

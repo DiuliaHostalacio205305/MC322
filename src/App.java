@@ -17,15 +17,15 @@ public class App {
     public static void main(String[] args) throws InterruptedException{
         
         //Pré definições
-        Heroi heroi = new Heroi("Calouro", 40, 0, 3, 3);
-        Inimigo inimigo = new Inimigo("MC102", 20, 0, 20);
+        Heroi heroi = new Heroi("Calouro", 30, 0, 4, 3);
+        Inimigo inimigo = new Inimigo("MC102", 25, 0, 25);
         Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo);
         
         int hpInimigo = inimigo.getVida();
         int hpHeroi = heroi.getVida();
         tabuleiro.iniciarPartida(); //Preenche e embaralha o deck de cartas
 
-        int acao = 0;
+        int acao = 5;
 
         //Texto de inicialização
         System.out.println(colorCyan + "Olá! Seja bem-vindo ao curso de Computação da Unicamp!");
@@ -43,7 +43,7 @@ public class App {
         /*PRIMEIRA RODADA*/
         System.out.println(colorPurple + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + nome_personagem + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + colorReset); 
         System.out.println(colorCyan + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n" + colorReset);
-        System.out.println(colorRed+ "- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'\n- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + colorReset);
+        System.out.println(colorRed+ "- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + colorReset);
         Thread.sleep(3000);
         comprarCartas(tabuleiro);
         printaStats(heroi, inimigo);
@@ -55,7 +55,7 @@ public class App {
         while(heroi.estaVivo() && inimigo.estaVivo()){ //agora roda até um dos 2 morrer
 
             //Turno do heroí
-            while (acao !=5 && heroi.getCafeina() > 0){
+            while (acao !=0 && heroi.getCafeina() > 0){
                 System.err.println(colorGreen + "\nÉ sua vez novamente!" + colorReset);
                 Thread.sleep(3500);
                 printaStats(heroi, inimigo);
@@ -81,17 +81,18 @@ public class App {
             }
 
             //Reseta a ação e a cafeína e o escudo
-            acao = 0;
-            heroi.setCafeina(3);
+            acao = 5;
+            heroi.setCafeina(4);
             heroi.resetaEscudo();
             tabuleiro.limparMao(); //Limpa a mao no final do turno
             comprarCartas(tabuleiro);
+            System.out.println(colorRed+ "\n- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'\n- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + colorReset);
         }
     
-        if(heroi.getVida() < 0){
+        if(heroi.getVida() <= 0){
             System.out.println(colorRed + "\nOh nãooo... \nVocê reprovou :( \nPelo menos da para tentar de novo semestre que vem!" + colorReset);
-        }                inimigo.atacar(heroi); //colocar uma função random aq pra variar entre ataque e escudo pro inimigo
-        if(inimigo.getVida() < 0){
+        }     
+        if(inimigo.getVida() <= 0){
                 System.out.println(colorGreen + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + colorReset);
         }
         scanner.close();
@@ -112,7 +113,7 @@ public class App {
     //Define o que acontece dependendo do número da ação escolhida pelo usuário
     public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, int hpInimigo, Tabuleiro tabuleiro) throws InterruptedException{
         List<Carta> mao = tabuleiro.getMao(); //acessa a mão do jogador
-        if (acao == 5){ //escolheu encerrar o turno
+        if (acao == 0){ //escolheu encerrar o turno
             System.out.println(colorRed + "Certeza?! Tá bom... Encerrando turno" + colorReset);
         } 
         else if(acao - 1 <= mao.size()){ //faz isso apenas se o jogador digitar uma posição válida da mão
@@ -120,12 +121,13 @@ public class App {
             int custo = cartaEscolhida.getCusto(); //pega o custo da carta
             if (heroi.getCafeina() - custo < 0){ //AQUI ao invés de ser -1 precisa ser - custo da carta, n terminei
                 System.out.println(colorRed + "Hm... Você não tem cafeína suficiente pra isso... Escolha uma outra ação (ou tenta pegar um café lá no IC, se a máquina te permitir)" + colorReset);
+                mao.remove(acao - 1); //tira a carta que o jogador tentou usar da mão dele
             }
             else if (acao == 1 || acao == 2 || acao == 3 || acao == 4){
                 tabuleiro.usarCarta(acao, tabuleiro);
             }
             else { //o usuário (burro) não digitou nenhum dos 3
-                System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 1, 2, 3, 4 ou 5 e aperte Enter" + colorReset);
+                System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 0, 1, 2, 3 ou 4 e aperte Enter" + colorReset);
             }
         }
     }
@@ -147,7 +149,7 @@ public class App {
 
     //Printa as infos pro user saber qual número apertar
     public static void textoEscolha(Heroi heroi, Tabuleiro tabuleiro){
-        System.out.println("Escolha uma carta (1-4) ou 5 para encerrar:" + colorCyan);
+        System.out.println("Escolha uma carta (1-4) ou 0 para encerrar:\n(Caso você não tenha cafeína suficiente para nenhuma ação, vai dormir!! (vulgo, encerre seu turno)" + colorCyan);
         tabuleiro.exibirMao();
         System.out.println(colorYellow + "- Cafeína disponível: " + heroi.getCafeina() + colorReset+ "\n");
         System.out.println("Digite o número da ação escolhida:");
