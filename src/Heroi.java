@@ -5,10 +5,12 @@
 public class Heroi extends Entidade{
     
     private int cafeina;
+    private int escudoMax;
 
-    public Heroi(String nome, int vida, int escudo, int cafeina){
+    public Heroi(String nome, int vida, int escudo, int cafeina, int escudoMax){
         super(nome, vida, escudo);
         this.cafeina = cafeina;
+        this.escudoMax = escudoMax;
     }
 
     public void gastaEnergia(int quantidade){
@@ -21,5 +23,9 @@ public class Heroi extends Entidade{
     
     public void setCafeina(int cafeina) {
         this.cafeina = cafeina;
+    }
+
+    public int getescudoMax(){
+        return escudoMax;
     }
 }

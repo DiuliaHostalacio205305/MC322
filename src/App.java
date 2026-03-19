@@ -17,8 +17,8 @@ public class App {
     public static void main(String[] args) throws InterruptedException{
         
         //Pré definições
-        Heroi heroi = new Heroi("Calouro", 40, 0, 3);
-        Inimigo inimigo = new Inimigo("MC102", 20, 0);
+        Heroi heroi = new Heroi("Calouro", 40, 0, 3, 3);
+        Inimigo inimigo = new Inimigo("MC102", 20, 0, 20);
         Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo);
         
         int hpInimigo = inimigo.getVida();
@@ -43,6 +43,7 @@ public class App {
         /*PRIMEIRA RODADA*/
         System.out.println(colorPurple + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + nome_personagem + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + colorReset); 
         System.out.println(colorCyan + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n" + colorReset);
+        System.out.println(colorRed+ "- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'\n- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + colorReset);
         Thread.sleep(3000);
         comprarCartas(tabuleiro);
         printaStats(heroi, inimigo);
