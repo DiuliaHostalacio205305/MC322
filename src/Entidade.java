@@ -23,7 +23,11 @@ public abstract class Entidade {
     }
 
     public void ganharEscudo(int shield){ //muda internamente o valor das variáveis
-        this.escudo = escudo + shield;
+        if(this.escudo + shield > 3){
+            this.escudo = 3;
+        } else {
+            this.escudo = escudo + shield;
+        }
     }
 
     public boolean estaVivo(){

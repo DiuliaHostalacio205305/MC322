@@ -15,9 +15,13 @@
     - Após a escolha do nome do personagem, a batalha contra o primeiro adversário, MC102, começa. O intuito deste jogo é retratar de forma lúdica o caminho que os alunos devem tomar, avançando de adversário em adversário, ou seja, de disciplina em disciplina, a fim de finalmente alcançar o diploma de 'Computeiro'.
 
         ### Dentro das Batalhas:
-        - As batalhas funcionam em um esquema de turnos, onde o personagem começa atacando, podendo escolher entre 3 ações diferentes - Atacar, Usar Escudo, Encerrar Turno - quantas vezes quiser, até sua energia acabar, com o intuito de derrotar o inimigo, no caso dessa implementação do jogo, MC102.
+        - O inimigo começa cada turno anunciando sua intenção, qual ação será realizada.
+        - As batalhas funcionam em um esquema de turnos, onde o personagem começa atacando, podendo escolher entre 4 ações diferentes, de acordo com as cartas que forem compradas da pilha e que estiverem na mão do jogador - quantas vezes quiser - até sua energia acabar, com o intuito de derrotar o inimigo, no caso dessa implementação do jogo, MC102.
         - As Cartas de Dano e Escudo são temáticas e relacionadas com os artifícios usados e necessários na vida real para permitir a aprovação dos alunos nas disciplinas, como, ir em monitorias e baixar o VSCode, tornando a experiência do jogo ainda mais imersiva.
         - O dano sofrido pelo personagem ocorre a partir de ações das disciplinas (nesse caso, 'time limit'), que representam dificuldades características, que os estudantes passam durante os semestres.
+        - Após cada turno, o personagem terá seu escudo zerado, sua cafeína recarregada e sua mão completamente descartada.
+        - No ínicio de cada nova rodada, 4 novas cartas são distribuídas para o jogador e ele poderá escolher quaisquer delas para jogar.
+        - Caso a pilha de compra termine, no começo ou no meio de uma rodada, a pilha de descarte é reembaralhada e o jogador pode comprar novamente da pilha de compra.
         
         ### Fim da Batalha:
         - O fim se dá de duas formas:
