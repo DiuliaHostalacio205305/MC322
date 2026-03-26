@@ -12,6 +12,7 @@ public abstract class Entidade {
         this.nome = nome;
         this.vida = vida;
         this.escudo = escudo;
+        this.efeitosAtivos = new ArrayList<>();
     }
 
     public void receberDano(int dano){
@@ -59,6 +60,15 @@ public abstract class Entidade {
 
     public void setNome(String nome){
         this.nome = nome;
+    }
+
+    public void usarEfeito(Efeito efeito){ //tem que colocar o caso aqui da entidade já ter o efeito, dai tem que somar os acumulos
+        this.efeitosAtivos.add(efeito);
+        //acho que dá pra colocar um print aq falando q o fulano recebeu um efeito novo ou algo assim
+    }
+
+    public void excluirEfeito(Efeito efeito){
+        this.efeitosAtivos.remove(efeito);
     }
 
 }
