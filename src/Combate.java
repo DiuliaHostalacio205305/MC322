@@ -23,7 +23,7 @@ public class Combate {
         subscribers.remove(efeito);
     }
 
-    public notify(Evento evento){
+    public void notify(Evento evento){
         List<Efeito> copiaLista = new ArrayList<>(subscribers);
         for(int i = 0; i < copiaLista.size(); i++){
             Efeito e = copiaLista.get(i);

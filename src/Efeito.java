@@ -28,5 +28,9 @@ public abstract class Efeito {
         return acumulos;
     }
 
+    public void setAcumulo(int newAcumulo){
+        this.acumulos = newAcumulo;
+    }
+
     public abstract void serNotificado(Evento evento, Combate combate); //vai ser subscrito em todos os efeitos que herdarem dessa classe
 }
