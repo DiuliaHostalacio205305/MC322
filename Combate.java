@@ -27,7 +27,7 @@ public class Combate {
         List<Efeito> copiaLista = new ArrayList<>(subscribers);
         for(int i = 0; i < copiaLista.size(); i++){
             Efeito e = copiaLista.get(i);
-            e.beNotified(evento, this);
+            e.serNotificado(evento, this);
         }
     }
 }

@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Entidade {
     
     private String nome;
     private int vida;
     private int escudo;
+    private List<Efeito> efeitosAtivos;
     
     public Entidade(String nome, int vida, int escudo){
         this.nome = nome;
