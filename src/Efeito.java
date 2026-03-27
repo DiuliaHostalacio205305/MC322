@@ -32,5 +32,9 @@ public abstract class Efeito {
         this.acumulos = newAcumulo;
     }
 
+    public void setDono(Entidade newDono){
+        this.dono = newDono;
+    }
+
     public abstract void serNotificado(Evento evento, Combate combate); //vai ser subscrito em todos os efeitos que herdarem dessa classe
 }

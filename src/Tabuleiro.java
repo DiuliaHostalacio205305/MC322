@@ -60,10 +60,10 @@ public class Tabuleiro {
         }
     }
 
-    public void usarCarta(int indice, Tabuleiro tabuleiro){
+    public void usarCarta(int indice, Tabuleiro tabuleiro, Combate combate){
         if (indice - 1 >= 0 && indice <= mao.size()){ //lembrar que o indice começa em 0
             Carta cartaEscolhida = mao.remove(indice - 1);
-            cartaEscolhida.usar(tabuleiro);
+            cartaEscolhida.usar(tabuleiro, combate);
             descarte.push(cartaEscolhida);
         }
     }

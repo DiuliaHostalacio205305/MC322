@@ -71,4 +71,15 @@ public abstract class Entidade {
         this.efeitosAtivos.remove(efeito);
     }
 
+    public int getForca(){
+        int total = 0;
+        for(int i = 0; i < this.efeitosAtivos.size(); i++){ //roda a lista de efeitos ativos
+            Efeito atual = this.efeitosAtivos.get(i); //seta o efeito que está sendo analizado como o atual
+            if(atual instanceof Forca){ //vê se o atual é realmente um efeito de força (e não veneno por exemplo)
+                total += atual.getAcumulo();
+            }
+        }
+        return total;
+    }
+
 }

@@ -19,7 +19,8 @@ public class App {
         //Pré definições
         Heroi heroi = new Heroi("Calouro", 30, 0, 4, 3);
         Inimigo inimigo = new Inimigo("MC102", 25, 0, 25);
-        Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo);
+        Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo); //é o baralho de cartas e personagens
+        Combate combate = new Combate(heroi, inimigo); //é o controlador do fluxo de batalha e publisher
         
         int hpInimigo = inimigo.getVida();
         int hpHeroi = heroi.getVida();
@@ -49,7 +50,7 @@ public class App {
         printaStats(heroi, inimigo);
         textoEscolha(heroi, tabuleiro);
         acao = scanner.nextInt();
-        escolhaAcoesHeroi(acao, heroi, inimigo, hpInimigo, tabuleiro);
+        escolhaAcoesHeroi(acao, heroi, inimigo, hpInimigo, tabuleiro, combate);
 
         /*RODADAS SEGUINTES*/
         while(heroi.estaVivo() && inimigo.estaVivo()){ //agora roda até um dos 2 morrer
@@ -61,7 +62,7 @@ public class App {
                 printaStats(heroi, inimigo);
                 textoEscolha(heroi, tabuleiro);
                 acao = scanner.nextInt();
-                escolhaAcoesHeroi(acao, heroi, inimigo, hpInimigo, tabuleiro);
+                escolhaAcoesHeroi(acao, heroi, inimigo, hpInimigo, tabuleiro, combate);
                 if (algmMorreu(inimigo, hpInimigo)){
                     break;
                 }
@@ -112,7 +113,7 @@ public class App {
     }
     
     //Define o que acontece dependendo do número da ação escolhida pelo usuário
-    public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, int hpInimigo, Tabuleiro tabuleiro) throws InterruptedException{
+    public static void escolhaAcoesHeroi(int acao, Heroi heroi, Inimigo inimigo, int hpInimigo, Tabuleiro tabuleiro, Combate combate) throws InterruptedException{
         List<Carta> mao = tabuleiro.getMao(); //acessa a mão do jogador
         if (acao == 0){ //escolheu encerrar o turno
             System.out.println(colorRed + "Certeza?! Tá bom... Encerrando turno" + COLORRESET);
@@ -125,7 +126,7 @@ public class App {
                 mao.remove(acao - 1); //tira a carta que o jogador tentou usar da mão dele
             }
             else if (acao == 1 || acao == 2 || acao == 3 || acao == 4){
-                tabuleiro.usarCarta(acao, tabuleiro);
+                tabuleiro.usarCarta(acao, tabuleiro, combate);
             }
             else { //o usuário (burro) não digitou nenhum dos 3
                 System.out.println(colorRed + "Você não escolheu uma ação válida. Por favor, digite um número entre 0, 1, 2, 3 ou 4 e aperte Enter" + COLORRESET);

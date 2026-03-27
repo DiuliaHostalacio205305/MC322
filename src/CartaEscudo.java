@@ -15,7 +15,7 @@ public class CartaEscudo extends Carta {
     }
 
     @Override
-    public void usar(Tabuleiro tabuleiro){
+    public void usar(Tabuleiro tabuleiro, Combate combate){
         System.out.println(colorCyan + "\nUsando a carta: " + getName());
         System.out.println("Você recebeu " + getEscudo() + " de escudo!");
         tabuleiro.getHeroi().ganharEscudo(escudo);

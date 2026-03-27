@@ -15,7 +15,7 @@ public class CartaDano extends Carta{
     }
 
     @Override
-    public void usar(Tabuleiro tabuleiro){
+    public void usar(Tabuleiro tabuleiro, Combate combate){
         System.out.println(colorOrange + "\nUsando a carta: " + getName());
         System.out.println("Você deu " + getDano() + " de dano!");
         tabuleiro.getInimigo().receberDano(dano);

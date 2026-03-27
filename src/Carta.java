@@ -10,7 +10,7 @@ public class Carta {
         this.custo = custo;
     }
 
-    public void usar(Tabuleiro tabuleiro){}
+    public void usar(Tabuleiro tabuleiro, Combate combate){}
 
     public String getName(){
         return nome;
