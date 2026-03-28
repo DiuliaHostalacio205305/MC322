@@ -1,6 +1,7 @@
 /*
 - Atributos: nome, vida, escudo
 - Métodos: receberDano, atacar, estaVivo */
+import java.util.Random;
 
 public class Inimigo extends Entidade{
 
@@ -18,6 +19,40 @@ public class Inimigo extends Entidade{
 
     public int getvidaMax(){
         return vidaMax;
+    }
+
+    public void atacar(Entidade heroi, Combate combate, Tabuleiro tabuleiro){
+        Random random = new Random();
+        int acao = random.nextInt(3);
+        if(acao == 0){
+            Random dadoDano = new Random();
+            int dano = dadoDano.nextInt(5);
+            CartaDano ataque = new CartaDano("Time limit", "Você caiu em um time limit com um for dentro de um for...", 0, dano);
+            ataque.usar(tabuleiro, combate);
+            System.out.println("O inimigo está atacando");
+            //assim n vai dar pra ele avisar o dano e tudo 
+        }
+        if(acao == 1){
+            System.out.println("O inimigo está usando veneno");
+            Random dadoBurnout = new Random();
+            int valorBurnout = dadoBurnout.nextInt(4);
+            CartaBurnout burnout = new CartaBurnout("Burnout inimigo", "descrição burnout do inimigo", 0, valorBurnout, heroi);
+            burnout.usar(tabuleiro, combate);
+        }
+        if(acao == 2){
+            System.out.println("O inimigo está usando força em si mesmo");
+            Random dadoForca = new Random();
+            int valorForca = dadoForca.nextInt(5);
+            CartaForca forca = new CartaForca("nome força", "descrição força", 0, valorForca);
+            forca.usar(tabuleiro, combate);
+        }
+        if(acao == 3){
+            System.out.println("O inimigo está usando escudo em si mesmo");
+            Random dadoEscudo = new Random();
+            int valorEscudo = dadoEscudo.nextInt(5);
+            CartaEscudo escudo = new CartaEscudo("nome escudo", "descrição escudo", 0, valorEscudo);
+            escudo.usar(tabuleiro, combate);
+        }
     }
 }
 

@@ -47,6 +47,7 @@ public class Combate {
         System.out.println("Uma nova rodada está iniciando!\nÉ a sua vez de jogar!");
         //Turno do herói
         printaStats(heroi, inimigo);
+        //a função do inimigo atacar já tá criada dentro da classe
         
 
     }

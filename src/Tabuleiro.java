@@ -42,6 +42,17 @@ public class Tabuleiro {
         compra.push(new CartaEscudo("Desinstalar o TikTok", "Você toma vergonha na cara e desisntala o TikTok para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
         compra.push(new CartaEscudo("Desinstalar o Instagram", "Você toma vergonha na cara e desisntala o Instagram para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
         compra.push(new CartaEscudo("Desinstalar o Twitter", "Você toma vergonha na cara e desisntala o Instagram para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+
+        
+        //Criação das cartas de Burnout (Veneno)
+        compra.push(new CartaBurnout("nome burnout", "descricao burnout", 3, 4, inimigo));
+        compra.push(new CartaBurnout("nome burnout 2", "descricao 2", 2, 3, inimigo));
+
+
+        //Criação das cartas de Força
+        compra.push(new CartaForca("nome força", "descrição força", 2, 3));
+        compra.push(new CartaForca("nome força 2", "descrição força 2", 2, 2));
+        
         Collections.shuffle(compra);
     }
 
@@ -108,7 +119,8 @@ Cartas de escudo:
 
 
 Cartas de veneno:
-
+compra.push(new CartaBurnout("Ficar 5h tentando debugar e não achar o bug", "Você tenta compilar seu código e descobre um bug, mas fica 5h tentando achar o erro e não consegue", 3, 3, inimigo)); //todas as que eu criar aqui serão pro herói usar
+compra.push(new CartaBurnout("Tentar aprender do zero a usar arquivos .json pra um trabalho que vence AMANHÃ (spoiler: definitivamente você não vai ter muito sono essa noite)", "Você descobriu AGORA que seu trabalho pra amanhã precisa que vc use arquivos .json pra salvar dados, mas vc nunca fez isso antes e precisa aprender o mais rápido possível", 0, 4, heroi))
 
 
 
