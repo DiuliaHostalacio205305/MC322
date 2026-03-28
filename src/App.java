@@ -20,7 +20,7 @@ public class App {
         Heroi heroi = new Heroi("Calouro", 30, 0, 4, 3);
         Inimigo inimigo = new Inimigo("MC102", 25, 0, 25);
         Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo); //é o baralho de cartas e personagens
-        Combate combate = new Combate(heroi, inimigo); //é o controlador do fluxo de batalha e publisher
+        Combate combate = new Combate(heroi, inimigo, tabuleiro); //é o controlador do fluxo de batalha e publisher
         
         int hpInimigo = inimigo.getVida();
         int hpHeroi = heroi.getVida();
