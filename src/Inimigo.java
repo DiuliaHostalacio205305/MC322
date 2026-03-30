@@ -12,11 +12,6 @@ public class Inimigo extends Entidade{
         this.vidaMax = vidaMax; 
     }
 
-    public void atacar(Heroi heroi){
-        int dano = 5; 
-        heroi.receberDano(dano);
-    }
-
     public int getvidaMax(){
         return vidaMax;
     }
@@ -41,10 +36,10 @@ public class Inimigo extends Entidade{
         }
         if(acao == 2){
             System.out.println("O inimigo está usando força em si mesmo");
-            Random dadoForca = new Random();
-            int valorForca = dadoForca.nextInt(5);
-            CartaForca forca = new CartaForca("nome força", "descrição força", 0, valorForca);
-            forca.usar(tabuleiro, combate);
+            Random dadoLockin = new Random();
+            int valorLockin = dadoLockin.nextInt(5);
+            CartaLockin Lockin = new CartaLockin("nome força", "descrição força", 0, valorLockin);
+            Lockin.usar(tabuleiro, combate);
         }
         if(acao == 3){
             System.out.println("O inimigo está usando escudo em si mesmo");

@@ -49,9 +49,9 @@ public class Tabuleiro {
         compra.push(new CartaBurnout("nome burnout 2", "descricao 2", 2, 3, inimigo));
 
 
-        //Criação das cartas de Força
-        compra.push(new CartaForca("nome força", "descrição força", 2, 3));
-        compra.push(new CartaForca("nome força 2", "descrição força 2", 2, 2));
+        //Criação das cartas de Lock-In
+        compra.push(new CartaLockin("nome Lock-In", "descrição Lock-In", 2, 3));
+        compra.push(new CartaLockin("nome Lock-In 2", "descrição Lock-In 2", 2, 2));
         
         Collections.shuffle(compra);
     }
