@@ -68,7 +68,7 @@ public class Combate {
                 nRodada += 1;
             }
             /*RESTANTE DAS RODADAS */
-            else{
+            if(nRodada != 1){
                 while (acao !=0 && heroi.getCafeina() > 0){
                     System.err.println(COLOR_GREEN + "\nÉ sua vez novamente!" + COLOR_RESET);
                     Thread.sleep(1000);
@@ -80,18 +80,34 @@ public class Combate {
                         break;
                     }
                 }
-        
-        /*TURNO DOS INIMIGOS */
+            }
+            /*TURNO DOS INIMIGOS */
             inimigo.atacar(heroi, this, tabuleiro);
-
+            if(heroi.getVida() <= 0){
+                    System.out.println("Vida de " + heroi.getName() + " = 0/" + heroi.getVida());
+                    break;
+                }
+            System.out.println(COLOR_GREEN + "Vida de " + heroi.getName() + " = " + heroi.getVida() + "/" + heroi.getvidaMax() + COLOR_RESET);
+            Thread.sleep(1000);
             
-        }
-        System.out.println("Uma nova rodada está iniciando!\nÉ a sua vez de jogar!");
-        //Turno do herói
-        printaStats(heroi, inimigo);
-        //a função do inimigo atacar já tá criada dentro da classe
-        
 
+            //Reseta a ação e a cafeína e o escudo
+            acao = 5;
+            heroi.setCafeina(4);
+            heroi.resetaEscudo();
+            tabuleiro.limparMao(); //Limpa a mao no final do turno
+            comprarCartas(tabuleiro);
+            System.out.println(COLOR_GREEN + "\nPRÓXIMA RODADA");
+            //TEM Q CORRIGIR ISSO AGR Q O INIMIGO TEM MULTIPLAS ACOES
+            System.out.println(COLOR_RED+ "\n\n- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + COLOR_RESET);
+        }
+        if(heroi.getVida() <= 0){
+            System.out.println(COLOR_RED + "\nOh nãooo... \nVocê reprovou :( \nPelo menos da para tentar de novo semestre que vem!" + COLOR_RESET);
+        }     
+        if(inimigo.getVida() <= 0){
+                System.out.println(COLOR_RED + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + COLOR_RESET);
+        }
+        scanner.close();
     }
 
     public Entidade getHeroi(){
@@ -140,7 +156,7 @@ public class Combate {
     //Retorna true se o inimigo morreu
     public static boolean algmMorreu(Inimigo inimigo){
         if(inimigo.getVida() <= 0){
-            System.out.println("\nVida de " + inimigo.getName() + " = 0/" + inimigo.getVida());
+            System.out.println("\nVida de " + inimigo.getName() + " = 0/" + inimigo.getvidaMax());
             return true;
         }
         return false;

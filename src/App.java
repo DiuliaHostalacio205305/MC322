@@ -17,7 +17,7 @@ public class App {
     public static void main(String[] args) throws InterruptedException{
         
         //Pré definições
-        Heroi heroi = new Heroi("Calouro", 30, 0, 4, 3);
+        Heroi heroi = new Heroi("Calouro", 30, 0, 4, 3, 30);
         Inimigo inimigo = new Inimigo("MC102", 25, 0, 25);
         Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo); //é o baralho de cartas e personagens
         Combate combate = new Combate(heroi, inimigo, tabuleiro); //é o controlador do fluxo de batalha e publisher
@@ -41,7 +41,13 @@ public class App {
         String nome_personagem = scanner.nextLine(); //lê o que foi digitado pelo usuário
         heroi.setNome(nome_personagem); //atribuí o novo nome ao personagem
 
+        combate.fluxoCombate();
+        scanner.close();
+    }
+}
         /*PRIMEIRA RODADA*/
+
+        /* TO COM MEDO DE APAAGR TUDO AINDA
         System.out.println(colorPurple + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + nome_personagem + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + COLORRESET); 
         System.out.println(colorCyan + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n" + COLORRESET);
         System.out.println(colorRed+ "\n- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'\n- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + COLORRESET);
@@ -52,7 +58,7 @@ public class App {
         acao = scanner.nextInt();
         escolhaAcoesHeroi(acao, heroi, inimigo, hpInimigo, tabuleiro, combate);
 
-        /*RODADAS SEGUINTES*/
+        RODADAS SEGUINTES
         while(heroi.estaVivo() && inimigo.estaVivo()){ //agora roda até um dos 2 morrer
 
             //Turno do heroí
@@ -93,15 +99,15 @@ public class App {
     
         if(heroi.getVida() <= 0){
             System.out.println(colorRed + "\nOh nãooo... \nVocê reprovou :( \nPelo menos da para tentar de novo semestre que vem!" + COLORRESET);
-        }     
+        }
         if(inimigo.getVida() <= 0){
                 System.out.println(colorGreen + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + COLORRESET);
         }
         scanner.close();
     }
+    */
 
-
-    /*FUNÇÕES UTÉIS PARA A ORGANIZAÇÃO*/
+    /*FUNÇÕES UTÉIS PARA A ORGANIZAÇÃO
     
     //Verifica a quantidade de cafeína restante e printa o resultado
     public static void infosCafeina(Heroi heroi) throws InterruptedException{
@@ -166,5 +172,5 @@ public class App {
         }
     }
 }
-
+*/
 //commentsleep
