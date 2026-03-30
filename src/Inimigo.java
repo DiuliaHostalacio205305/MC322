@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class Inimigo extends Entidade{
 
+    private int intencao; //o ataque do inimigo vai ficar salvo aqui
     int vidaMax;
 
     public Inimigo(String nome, int vida, int escudo, int vidaMax){
@@ -16,9 +17,18 @@ public class Inimigo extends Entidade{
         return vidaMax;
     }
 
-    public void atacar(Entidade heroi, Combate combate, Tabuleiro tabuleiro){
+    public int getIntencao(){
+        return intencao;
+    }
+
+    public void randomizarAtaque(){
         Random random = new Random();
-        int acao = random.nextInt(3);
+        this.intencao = random.nextInt(3);
+    }
+
+    public void atacar(Entidade heroi, Combate combate, Tabuleiro tabuleiro){
+        int acao = this.intencao;
+
         if(acao == 0){
             Random dadoDano = new Random();
             int dano = dadoDano.nextInt(5);
@@ -49,6 +59,22 @@ public class Inimigo extends Entidade{
             escudo.usar(tabuleiro, combate);
         }
     }
+
+    public void imprimeAcaoInimigo(int acao){
+        if(acao == 0){
+            System.out.println("Você vai cair em um time limit e vai tomar x de dano ein");
+        }
+        if(acao == 1){
+            System.out.println("Vou botar um Lab na mesma semana de 3 provas e te deixar de burnout ein");
+        }
+        if(acao == 2){
+            System.out.println("Vou me deixar de Lock-In ein");
+        }
+        if(acao == 3){
+            System.out.println("Vou usar escudo ein");
+        }
+    }
 }
+
 
 //Ideias de nomes de ataques: erro de compilação, esqueceu o ;, deu time limit, caiu num loop infinito

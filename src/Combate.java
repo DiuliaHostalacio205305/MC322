@@ -53,12 +53,19 @@ public class Combate {
 
         while(heroi.estaVivo() && inimigo.estaVivo()){
             
+        //Avisa que um novo turno começou
+        this.notify(Evento.INICIO);
+
         /*TURNO DO HEROÍ */
             /*PRIMEIRA RODADA */
+
             if(nRodada == 1){
                 System.out.println(COLOR_PURPLE + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + heroi.getName() + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + COLOR_RESET); 
                 System.out.println(COLOR_CYAN + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n" + COLOR_RESET);
-                System.out.println(COLOR_RED + "\n- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'\n- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + COLOR_RESET);
+                System.out.println(COLOR_RED + "\n- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'" + COLOR_RESET);
+                inimigo.randomizarAtaque();
+                inimigo.imprimeAcaoInimigo(inimigo.getIntencao());
+                
                 Thread.sleep(1000);
                 comprarCartas(tabuleiro);
                 printaStats(heroi, inimigo);
@@ -81,6 +88,9 @@ public class Combate {
                     }
                 }
             }
+            //Avisa que o turno terminou
+            this.notify(Evento.FIM);
+
             /*TURNO DOS INIMIGOS */
             inimigo.atacar(heroi, this, tabuleiro);
             if(heroi.getVida() <= 0){
@@ -97,13 +107,13 @@ public class Combate {
             heroi.resetaEscudo();
             tabuleiro.limparMao(); //Limpa a mao no final do turno
             comprarCartas(tabuleiro);
-            System.out.println(COLOR_GREEN + "\nPRÓXIMA RODADA");
-            //TEM Q CORRIGIR ISSO AGR Q O INIMIGO TEM MULTIPLAS ACOES
-            System.out.println(COLOR_RED+ "\n\n- MC102: 'Éh bixo... fica esperto, porque o meu timelimit vai te dar 5 de dano" + COLOR_RESET);
+            System.out.println(COLOR_GREEN + "\nRODADA " + nRodada);
+            inimigo.randomizarAtaque();
+            inimigo.imprimeAcaoInimigo(inimigo.getIntencao());
         }
         if(heroi.getVida() <= 0){
             System.out.println(COLOR_RED + "\nOh nãooo... \nVocê reprovou :( \nPelo menos da para tentar de novo semestre que vem!" + COLOR_RESET);
-        }     
+        }
         if(inimigo.getVida() <= 0){
                 System.out.println(COLOR_RED + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + COLOR_RESET);
         }
@@ -177,7 +187,7 @@ public class Combate {
 
     //Printa as infos pro user saber qual número apertar
     public static void textoEscolha(Heroi heroi, Tabuleiro tabuleiro) throws InterruptedException{
-        Thread.sleep(1000); 
+        Thread.sleep(1000);
         System.out.println("Escolha uma carta (1-4) ou 0 para encerrar:\n(Caso você não tenha cafeína suficiente para nenhuma ação, vai dormir!! (vulgo, encerre seu turno)" + COLOR_CYAN);
         tabuleiro.exibirMao();
         Thread.sleep(1000);

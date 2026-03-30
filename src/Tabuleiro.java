@@ -41,18 +41,20 @@ public class Tabuleiro {
         compra.push(new CartaEscudo("Mudar para Linux", "Você toma a decisão difícil de abandonar o Windows e se arriscar no mundo do Linux \nCusto: 2 cafeína \nEscudo: 3", 2, 3 ));
         compra.push(new CartaEscudo("Desinstalar o TikTok", "Você toma vergonha na cara e desisntala o TikTok para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
         compra.push(new CartaEscudo("Desinstalar o Instagram", "Você toma vergonha na cara e desisntala o Instagram para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
-        compra.push(new CartaEscudo("Desinstalar o Twitter", "Você toma vergonha na cara e desisntala o Instagram para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+        compra.push(new CartaEscudo("Desinstalar o Twitter", "Você toma vergonha na cara e desisntala o Twitter para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
 
         
         //Criação das cartas de Burnout (Veneno)
-        compra.push(new CartaBurnout("nome burnout", "descricao burnout", 3, 4, inimigo));
-        compra.push(new CartaBurnout("nome burnout 2", "descricao 2", 2, 3, inimigo));
+        compra.push(new CartaBurnout("burnout 3", "descriçao 1 \nCusto: 3 cafeínas \nOnûs: 4", 3, 4, inimigo));
+        compra.push(new CartaBurnout("nome burnout 2", "descricao 2 \nCusto: 2 cafeínas \nOnûs: 3", 2, 3, inimigo));
 
 
         //Criação das cartas de Lock-In
-        compra.push(new CartaLockin("nome Lock-In", "descrição Lock-In", 2, 3));
-        compra.push(new CartaLockin("nome Lock-In 2", "descrição Lock-In 2", 2, 2));
+        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu fim de semana codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 3", 2, 3));
+        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu dia codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 2", 2, 2));
         
+
+
         Collections.shuffle(compra);
     }
 
