@@ -5,6 +5,17 @@ import java.util.Random;
 
 public class Inimigo extends Entidade{
 
+    public static final String COLOR_RESET = "\u001B[0m";
+    public static final String COLOR_PURPLE = "\u001B[35m";
+    public static final String COLOR_CYAN = "\u001B[36m";
+    public static final String COLOR_RED = "\u001B[31m";
+    public static final String COLOR_GREEN = "\u001B[32m";
+    public static final String COLOR_YELLOW = "\u001B[33m";
+    public static final String COLOR_LIGHT_GREEN = "\u001B[92m";
+    public static final String COLOR_ORANGE = "\u001B[38;5;208m";
+    public static final String COLOR_PINK = "\u001B[95m";
+
+
     private int intencao; //o ataque do inimigo vai ficar salvo aqui
     int vidaMax;
 
@@ -30,48 +41,40 @@ public class Inimigo extends Entidade{
         int acao = this.intencao;
 
         if(acao == 0){
-            Random dadoDano = new Random();
-            int dano = dadoDano.nextInt(5);
-            CartaDano ataque = new CartaDano("Time limit", "Você caiu em um time limit com um for dentro de um for...", 0, dano);
+            CartaDano ataque = new CartaDano("Time limit", "Você caiu em um time limit com um for dentro de um for...", 0, 5);
             ataque.usar(tabuleiro, combate);
             System.out.println("O inimigo está atacando");
             //assim n vai dar pra ele avisar o dano e tudo 
         }
         if(acao == 1){
             System.out.println("O inimigo está usando veneno");
-            Random dadoBurnout = new Random();
-            int valorBurnout = dadoBurnout.nextInt(4);
-            CartaBurnout burnout = new CartaBurnout("Burnout inimigo", "descrição burnout do inimigo", 0, valorBurnout, heroi);
+            CartaBurnout burnout = new CartaBurnout("Burnout inimigo", "descrição burnout do inimigo", 0, 4, heroi);
             burnout.usar(tabuleiro, combate);
         }
         if(acao == 2){
             System.out.println("O inimigo está usando força em si mesmo");
-            Random dadoLockin = new Random();
-            int valorLockin = dadoLockin.nextInt(5);
-            CartaLockin Lockin = new CartaLockin("nome força", "descrição força", 0, valorLockin);
+            CartaLockin Lockin = new CartaLockin("nome força", "descrição força", 0, 3);
             Lockin.usar(tabuleiro, combate);
         }
         if(acao == 3){
             System.out.println("O inimigo está usando escudo em si mesmo");
-            Random dadoEscudo = new Random();
-            int valorEscudo = dadoEscudo.nextInt(5);
-            CartaEscudo escudo = new CartaEscudo("nome escudo", "descrição escudo", 0, valorEscudo);
+            CartaEscudo escudo = new CartaEscudo("nome escudo", "descrição escudo", 0, 3);
             escudo.usar(tabuleiro, combate);
         }
     }
 
     public void imprimeAcaoInimigo(int acao){
         if(acao == 0){
-            System.out.println("Você vai cair em um time limit e vai tomar x de dano ein");
+            System.out.println(COLOR_RED + "-MC102: 'Você vai cair em um time limit e vai tomar 5 de dano ein'" + COLOR_RESET);
         }
         if(acao == 1){
-            System.out.println("Vou botar um Lab na mesma semana de 3 provas e te deixar de burnout ein");
+            System.out.println(COLOR_RED + "-MC102: 'Vou botar um Lab na mesma semana de 3 provas e te deixar com 4 pontos de burnout ein'" + COLOR_RESET);
         }
         if(acao == 2){
-            System.out.println("Vou me deixar de Lock-In ein");
+            System.out.println(COLOR_RED + "-MC102: 'Vou me deixar de Lock-In, com 3 pontos a mais de força, ein'" + COLOR_RESET);
         }
         if(acao == 3){
-            System.out.println("Vou usar escudo ein");
+            System.out.println(COLOR_RED+  "-MC102: 'Vou me dar 3 de escudo, ein'" + COLOR_RESET);
         }
     }
 }
