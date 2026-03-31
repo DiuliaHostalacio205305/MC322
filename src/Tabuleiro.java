@@ -39,19 +39,19 @@ public class Tabuleiro {
         compra.push(new CartaEscudo("Baixar o VScode", "Você baixa o VScode, facilitando muito sua vida ao codar \nCusto: 1 cafeína \nEscudo: 2", 1, 2 ));
         compra.push(new CartaEscudo("Comprar um notebook com 16gb de RAM", "Você junta uma grana e compra um notebook potente \nCusto: 2 cafeína \nEscudo: 3", 2, 3 ));
         compra.push(new CartaEscudo("Mudar para Linux", "Você toma a decisão difícil de abandonar o Windows e se arriscar no mundo do Linux \nCusto: 2 cafeína \nEscudo: 3", 2, 3 ));
-        compra.push(new CartaEscudo("Desinstalar o TikTok", "Você toma vergonha na cara e desisntala o TikTok para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
-        compra.push(new CartaEscudo("Desinstalar o Instagram", "Você toma vergonha na cara e desisntala o Instagram para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
-        compra.push(new CartaEscudo("Desinstalar o Twitter", "Você toma vergonha na cara e desisntala o Twitter para poder dar Lock-in \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+        compra.push(new CartaEscudo("Desinstalar o TikTok", "Você toma vergonha na cara e desinstala o TikTok para poder focar mais \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+        compra.push(new CartaEscudo("Desinstalar o Instagram", "Você toma vergonha na cara e desinstala o Instagram para poder focar mais \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+        compra.push(new CartaEscudo("Desinstalar o Twitter", "Você toma vergonha na cara e desinstala o Twitter para poder focar mais \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
 
         
         //Criação das cartas de Burnout (Veneno)
-        compra.push(new CartaBurnout("burnout 3", "descriçao 1 \nCusto: 3 cafeínas \nOnûs: 4", 3, 4, inimigo));
-        compra.push(new CartaBurnout("nome burnout 2", "descricao 2 \nCusto: 2 cafeínas \nOnûs: 3", 2, 3, inimigo));
+        compra.push(new CartaBurnout("Reclamar com o Coordenador do curso", "Você vai até a sala do Coordenador reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 3 cafeínas \nVeneno: 4", 3, 4, inimigo));
+        compra.push(new CartaBurnout("Reclamar com o professor", "Você vai até a sala do Professor reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 2 cafeínas \nVeneno: 3", 2, 3, inimigo));
 
 
         //Criação das cartas de Lock-In
-        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu fim de semana codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 3", 2, 3, heroi));
-        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu dia codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 2", 2, 2, heroi));
+        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", " Você dá Lock-In no fim de semana, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs de força: 3", 2, 3, heroi));
+        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", " Você dá Lock-In durante o dia, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs de força: 2", 2, 2, heroi));
         
 
 

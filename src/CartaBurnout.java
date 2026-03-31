@@ -21,7 +21,7 @@ public class CartaBurnout extends Carta{
 
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
-        System.out.println(COLOR_ORANGE + "Usou a carta " + getName());
+        System.out.println(COLOR_PINK + "Usando a carta '" + getName());
         Entidade alvo;
         if(this.alvoEntidade == combate.getHeroi()){ //significa que o alvo da carta é o herói, o inimigo está atacando
             alvo = combate.getHeroi();
@@ -30,9 +30,8 @@ public class CartaBurnout extends Carta{
             tabuleiro.getHeroi().gastaEnergia(this.getCusto());
             System.out.println("Você usou uma carta de Veneno contra seu inimigo e agora ele está envenenado!" + COLOR_RESET);
         }
-        Burnout novoBurnout = new Burnout(getName(), getDescricao(), alvo, burnout);
+        Burnout novoBurnout = new Burnout(this.getName(), this.getDescricao(), alvo, burnout);
         alvo.usarEfeito(novoBurnout);
         combate.subscribe(novoBurnout);        
     }
-    
 }

@@ -89,8 +89,7 @@ public class Combate {
                 }
             }
 
-            //Avisa que o turno terminou
-            this.notify(Evento.FIM);
+            
 
             /*TURNO DOS INIMIGOS */
             inimigo.atacar(heroi, this, tabuleiro);
@@ -101,6 +100,8 @@ public class Combate {
             System.out.println(COLOR_GREEN + "\nVida de " + heroi.getName() + " = " + heroi.getVida() + "/" + heroi.getvidaMax() + COLOR_RESET);
             Thread.sleep(1000);
             
+            //Avisa que o turno terminou
+            this.notify(Evento.FIM);
 
             //Reseta a ação e a cafeína e o escudo
             acao = 5;

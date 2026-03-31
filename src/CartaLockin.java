@@ -21,7 +21,7 @@ public class CartaLockin extends Carta{
 
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
-        System.out.println(COLOR_PINK + "Usando a carta '" + getName() + getDescricao() + "'.");
+        System.out.println(COLOR_PINK + "Usando a carta '" + getName());
         Entidade alvo;
         if(this.alvoEntidade == combate.getInimigo()){ //o inimigo está usando força em si
             alvo = combate.getInimigo();
@@ -31,7 +31,7 @@ public class CartaLockin extends Carta{
             tabuleiro.getHeroi().gastaEnergia(this.getCusto());
 
         }
-        Lockin novaLockin = new Lockin("Codar no papel", "A partir de agora o inimigo só te permiti codar no papel", alvo, strenght); 
+        Lockin novaLockin = new Lockin(this.getName(), this.getDescricao(), alvo, strenght); 
         alvo.usarEfeito(novaLockin);
         combate.subscribe(novaLockin); //inscreve a Lock-in para ser notificada
     }

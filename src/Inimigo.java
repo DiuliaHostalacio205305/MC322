@@ -48,7 +48,7 @@ public class Inimigo extends Entidade{
         }
         if(acao == 1){
             System.out.println(COLOR_ORANGE + "\nO inimigo está usando burnout em você\nVocê recebeu o efeito 'burnout' com acúmulo por + 4 rodadas" + COLOR_RESET);
-            CartaBurnout burnout = new CartaBurnout("Burnout inimigo", "descrição burnout do inimigo", 0, 4, heroi);
+            CartaBurnout burnout = new CartaBurnout("Lab na mesma semana que 3 provas", "Você vai ter uma semana com mais obrigações do que horas no dia", 0, 4, heroi);
             burnout.usar(tabuleiro, combate);
         }
         if(acao == 2){
