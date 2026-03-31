@@ -50,8 +50,8 @@ public class Tabuleiro {
 
 
         //Criação das cartas de Lock-In
-        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu fim de semana codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 3", 2, 3));
-        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu dia codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 2", 2, 2));
+        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu fim de semana codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 3", 2, 3, heroi));
+        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você gasta seu dia codando, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs: 2", 2, 2, heroi));
         
 
 

@@ -19,8 +19,8 @@ public class CartaDano extends Carta{
         //Avisa que o heroi atacou
         combate.notify(Evento.ATAQUE_HEROI);
         System.out.println(colorOrange + "\nUsando a carta: " + getName());
-        System.out.println("Você deu " + getDano() + " de dano!");
-        tabuleiro.getInimigo().receberDano(dano);
+        System.out.println("Você deu " + (getDano() + combate.getHeroi().getLockin()) + " de dano!");
+        tabuleiro.getInimigo().receberDano(dano + combate.getHeroi().getLockin());
         tabuleiro.getHeroi().gastaEnergia(this.getCusto());
         if(tabuleiro.getInimigo().getVida() <= 0) {
             System.out.println(colorRed + "Vida de " + tabuleiro.getInimigo().getName() + ": 0/" + tabuleiro.getInimigo().getvidaMax() + colorReset);

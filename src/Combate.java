@@ -88,6 +88,7 @@ public class Combate {
                     }
                 }
             }
+
             //Avisa que o turno terminou
             this.notify(Evento.FIM);
 
@@ -97,7 +98,7 @@ public class Combate {
                     System.out.println("Vida de " + heroi.getName() + " = 0/" + heroi.getVida());
                     break;
                 }
-            System.out.println(COLOR_GREEN + "Vida de " + heroi.getName() + " = " + heroi.getVida() + "/" + heroi.getvidaMax() + COLOR_RESET);
+            System.out.println(COLOR_GREEN + "\nVida de " + heroi.getName() + " = " + heroi.getVida() + "/" + heroi.getvidaMax() + COLOR_RESET);
             Thread.sleep(1000);
             
 
@@ -175,8 +176,8 @@ public class Combate {
     //Printa nome, vida e escudo tanto do herói, quanto do inimigo
     public static void printaStats(Heroi heroi, Inimigo inimigo) throws InterruptedException{
         Thread.sleep(1000);
-        System.out.println(COLOR_GREEN + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "/3" + "\n- Cafeína: " + heroi.getCafeina() + "\n\n--------------------\n" + COLOR_RESET);
-        System.out.println(COLOR_RED + "--- Inimigo ---\n\n- Nome: MC102\n- Vida: " + inimigo.getVida() + " Hp\n- Escudo: " + inimigo.getEscudo() + "\n" + COLOR_RESET);
+        System.out.println(COLOR_GREEN + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "/3" + "\n- Cafeína: " + heroi.getCafeina() + "\n- Acúmulo de Lock-in: " + heroi.getLockin() + "\n- Acumulo de Burnout: " + heroi.getBurnout() + "\n\n--------------------\n" + COLOR_RESET);
+        System.out.println(COLOR_RED + "--- Inimigo ---\n\n- Nome: MC102\n- Vida: " + inimigo.getVida() + " Hp\n- Escudo: " + inimigo.getEscudo() + "\n- Acumulo de Lock-in: " + inimigo.getLockin() + "\n- Acúmulo de Veneno: " + inimigo.getBurnout() + "\n" + COLOR_RESET);
     }
 
     public static void comprarCartas(Tabuleiro tabuleiro){

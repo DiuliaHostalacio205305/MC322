@@ -82,4 +82,15 @@ public abstract class Entidade {
         return total;
     }
 
+    public int getBurnout(){
+        int total = 0;
+        for(int i = 0; i < this.efeitosAtivos.size(); i++){
+            Efeito atual = this.efeitosAtivos.get(i);
+            if(atual instanceof Burnout){
+                total += atual.getAcumulo();
+            }
+        }
+        return total;
+    }
+
 }
