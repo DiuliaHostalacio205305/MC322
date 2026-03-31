@@ -87,6 +87,7 @@ public class Combate {
                         break;
                     }
                 }
+                //nRodada += 1;
             }
 
             
