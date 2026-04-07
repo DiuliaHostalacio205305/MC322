@@ -2,12 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ * Gerencia o fluxo de batalha entre o Herói e o Inimigo
+ * Esta classe implementa o padrão Observer para notificar efeitos 
+ */
 public class Combate {
 
     private Heroi heroi;
     private Inimigo inimigo;
     private Tabuleiro tabuleiro;
+    /** 
+     * Lista de observadores (Efeitos) que aguardam notificações de eventos 
+     * como início ou fim de turno
+     */
     private List<Efeito> subscribers = new ArrayList<>();
 
     //código de cores
@@ -21,23 +28,44 @@ public class Combate {
     public static final String COLOR_ORANGE = "\u001B[38;5;208m";
     public static final String COLOR_PINK = "\u001B[95m";
 
+    //inicialização do scanner para a leitura do terminal
+    Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Construtor da classe Combate
+     * @param heroi O herói que participará da luta
+     * @param inimigo O inimigo a ser combatido
+     * @param tabuleiro O tabuleiro de cartas associado ao combate
+     */
     public Combate(Heroi heroi, Inimigo inimigo, Tabuleiro tabuleiro){
         this.heroi = heroi;
         this.inimigo = inimigo;
         this.tabuleiro = tabuleiro;
     }
 
+    /**
+     * Inscreve um efeito para receber notificações de eventos de combate
+     * @param efeito O efeito que deseja observar o combate
+     */
     public void subscribe(Efeito efeito){
         if(!subscribers.contains(efeito)){
             subscribers.add(efeito);
         }
     }
 
+    /**
+     * Remove um efeito da lista de notificações
+     * @param efeito O efeito a ser removido
+     */
     public void unsubscribe(Efeito efeito){
         subscribers.remove(efeito);
     }
 
+    /**
+     * Notifica todos os efeitos inscritos sobre a ocorrência de um evento específico
+     * Utiliza uma cópia da lista para evitar erros de modificação concorrente durante o loop
+     * @param evento O tipo de evento ocorrido (Ex: início ou fim de turno)
+     */
     public void notify(Evento evento){
         List<Efeito> copiaLista = new ArrayList<>(subscribers);
         for(int i = 0; i < copiaLista.size(); i++){
@@ -46,22 +74,32 @@ public class Combate {
         }
     }
 
-    Scanner scanner = new Scanner(System.in);
+    /**
+     * Executa o loop principal do combate por turnos até que uma das entidades morra
+     * Controla as fases de início de turno, ação do herói, ação do inimigo e fim de turno
+     * @throws InterruptedException Caso ocorra uma interrupção durante as pausas de Thread.sleep
+     */
     public void fluxoCombate() throws InterruptedException{
         int nRodada = 1; //contador de rodadas
         int acao = 5;
 
         while(heroi.estaVivo() && inimigo.estaVivo()){
-            
         //Avisa que um novo turno começou
         this.notify(Evento.INICIO);
 
         /*TURNO DO HEROÍ */
             /*PRIMEIRA RODADA */
-
             if(nRodada == 1){
                 System.out.println(COLOR_PURPLE + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + heroi.getName() + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + COLOR_RESET); 
-                System.out.println(COLOR_CYAN + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o 'MC102'\n" + COLOR_RESET);
+                System.out.println(COLOR_CYAN + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o \n");
+                System.out.println("╔════════════════════════════════════════════╗\r\n" + //
+                                        "║ ███╗   ███╗ ██████╗ ██╗ ██████╗ ██████╗    ║\r\n" + //
+                                        "║ ████╗ ████║██╔════╝███║██╔═████╗╚════██╗   ║\r\n" + //
+                                        "║ ██╔████╔██║██║     ╚██║██║██╔██║ █████╔╝   ║\r\n" + //
+                                        "║ ██║╚██╔╝██║██║      ██║████╔╝██║██╔═══╝    ║\r\n" + //
+                                        "║ ██║ ╚═╝ ██║╚██████╗ ██║╚██████╔╝███████╗   ║\r\n" + //
+                                        "║ ╚═╝     ╚═╝ ╚═════╝ ╚═╝ ╚═════╝ ╚══════╝   ║\r\n" + //
+                                        "╚════════════════════════════════════════════╝" + COLOR_RESET);
                 System.out.println(COLOR_RED + "\n- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'" + COLOR_RESET);
                 inimigo.randomizarAtaque();
                 inimigo.imprimeAcaoInimigo(inimigo.getIntencao());
@@ -87,10 +125,8 @@ public class Combate {
                         break;
                     }
                 }
-                //nRodada += 1;
+                //nRodada += 1; nn sei pq da pau :(
             }
-
-            
 
             /*TURNO DOS INIMIGOS */
             inimigo.atacar(heroi, this, tabuleiro);
@@ -120,20 +156,27 @@ public class Combate {
         if(inimigo.getVida() <= 0){
                 System.out.println(COLOR_RED + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + COLOR_RESET);
         }
+        //fecha o scanner de leitura de terminal
         scanner.close();
     }
 
+    /** @return O herói do combate. */
     public Entidade getHeroi(){
         return heroi;
     }
 
+    /** @return O inimigo do combate. */
     public Entidade getInimigo(){
         return inimigo;
     }
 
-        /*FUNÇÕES UTÉIS PARA A ORGANIZAÇÃO*/
+    /*FUNÇÕES UTÉIS PARA A ORGANIZAÇÃO*/
     
-    //Verifica a quantidade de cafeína restante e printa o resultado
+   /**
+     * Exibe informações sobre a cafeína restante do herói
+     * @param heroi O herói a ter a cafeína checada
+     * @throws InterruptedException Devido ao uso de Thread.sleep
+     */
     public static void infosCafeina(Heroi heroi) throws InterruptedException{
         System.out.println(COLOR_YELLOW + "Cafeína disponível: " + heroi.getCafeina() + COLOR_RESET);
         Thread.sleep(1000);
@@ -142,7 +185,11 @@ public class Combate {
         }
     }
     
-    //Define o que acontece dependendo do número da ação escolhida pelo usuário
+    /**
+     * Define o que acontece dependendo do número da ação escolhida pelo usuário
+     * @param acao O índice da carta na mão (1-4) ou 0 para encerrar o turno
+     * @throws InterruptedException Devido ao uso de Thread.sleep
+     */
     public void escolhaAcoesHeroi(int acao) throws InterruptedException{
         List<Carta> mao = tabuleiro.getMao(); //acessa a mão do jogador
         if (acao == 0){ //escolheu encerrar o turno
@@ -164,9 +211,11 @@ public class Combate {
         }
     }
 
-    
-
-    //Retorna true se o inimigo morreu
+    /**
+     * Verifica se o inimigo foi derrotado
+     * @param inimigo O inimigo a ser verificado
+     * @return true se a vida do inimigo for menor ou igual a zero, false caso contrário
+     */
     public static boolean algmMorreu(Inimigo inimigo){
         if(inimigo.getVida() <= 0){
             System.out.println("\nVida de " + inimigo.getName() + " = 0/" + inimigo.getvidaMax());
@@ -175,20 +224,34 @@ public class Combate {
         return false;
     }
 
-    //Printa nome, vida e escudo tanto do herói, quanto do inimigo
+    /**
+     * Imprime no terminal os atributos atuais (Vida, Escudo, Cafeína, Efeitos) do herói e do inimigo
+     * @param heroi O herói para exibir status
+     * @param inimigo O inimigo para exibir status
+     * @throws InterruptedException Para controle de tempo da interface
+     */
     public static void printaStats(Heroi heroi, Inimigo inimigo) throws InterruptedException{
         Thread.sleep(1000);
         System.out.println(COLOR_GREEN + "\n --- Personagem ---\n\n- Nome: " + heroi.getName() + "\n- Vida: " + heroi.getVida() + " Hp\n- Escudo: " + heroi.getEscudo() + "/3" + "\n- Cafeína: " + heroi.getCafeina() + "\n- Acúmulo de Lock-in: " + heroi.getLockin() + "\n- Acumulo de Burnout: " + heroi.getBurnout() + "\n\n--------------------\n" + COLOR_RESET);
         System.out.println(COLOR_RED + "--- Inimigo ---\n\n- Nome: MC102\n- Vida: " + inimigo.getVida() + " Hp\n- Escudo: " + inimigo.getEscudo() + "\n- Acumulo de Lock-in: " + inimigo.getLockin() + "\n- Acúmulo de Veneno: " + inimigo.getBurnout() + "\n" + COLOR_RESET);
     }
 
+    /**
+     * Comanda o tabuleiro para que o jogador compre a quantidade inicial de cartas
+     * @param tabuleiro O tabuleiro onde as cartas serão compradas
+     */
     public static void comprarCartas(Tabuleiro tabuleiro){
         for (int i = 0; i < 4; i++) {
             tabuleiro.comprarCarta();
         }
     }
 
-    //Printa as infos pro user saber qual número apertar
+    /**
+     * Printa o menu de opções de cartas e status de cafeína para o usuário
+     * @param heroi O herói para checar cafeína
+     * @param tabuleiro O tabuleiro para exibir a mão atual
+     * @throws InterruptedException Para controle de tempo da interface
+     */
     public static void textoEscolha(Heroi heroi, Tabuleiro tabuleiro) throws InterruptedException{
         Thread.sleep(1000);
         System.out.println("Escolha uma carta (1-4) ou 0 para encerrar:\n(Caso você não tenha cafeína suficiente para nenhuma ação, vai dormir!! (vulgo, encerre seu turno)" + COLOR_CYAN);

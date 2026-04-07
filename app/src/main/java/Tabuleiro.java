@@ -33,6 +33,9 @@ public class Tabuleiro {
         compra.push(new CartaDano("Ir na aula", "Você vai na aula e aprende a matéria \nCusto: 2 cafeína \nDano: 3", 2, 3));
         compra.push(new CartaDano("Pesquisar na Internet", "Você da uma pesquisada para resolver uma dúvida \nCusto: 1 cafeína \nDano: 3", 1, 3));
         compra.push(new CartaDano("Perguntar para o coleguinha (sem plágio)", "Você conversa com um amigo e descobre como ele já tinha resolvido um problema parecido \nCusto: 1 cafeína \nDano: 2", 1, 2));
+        //carta nova
+        compra.push(new CartaDano("Ler um livro", "Tal como seus antepassados, você decide pegar o livro 'Entendendo algoritimos' e ler \nCusto: 3 cafeína \nDano: 5", 3, 5));
+        compra.push(new CartaDano("Olhar os slides", "Você decide dar uma relida nos slides de aula \nCusto: 1 cafeína \nDano: 2", 1, 2));
         
 
         //Criação das cartas de escudo
@@ -42,16 +45,22 @@ public class Tabuleiro {
         compra.push(new CartaEscudo("Desinstalar o TikTok", "Você toma vergonha na cara e desinstala o TikTok para poder focar mais \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
         compra.push(new CartaEscudo("Desinstalar o Instagram", "Você toma vergonha na cara e desinstala o Instagram para poder focar mais \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
         compra.push(new CartaEscudo("Desinstalar o Twitter", "Você toma vergonha na cara e desinstala o Twitter para poder focar mais \nCusto: 1 cafeína \nEscudo: 1", 1, 1 ));
+        //carta nova
+        compra.push(new CartaEscudo("Comprar um teclado gamer", "Ele ajuda em algo na prática? Não. Mas você se sente psicologicamente mais preparado para codar \nCusto: 2 cafeínas \nEscudo: 2", 2, 2 ));
 
         
         //Criação das cartas de Burnout (Veneno)
         compra.push(new CartaBurnout("Reclamar com o Coordenador do curso", "Você vai até a sala do Coordenador reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 3 cafeínas \nVeneno: 4", 3, 4, inimigo));
         compra.push(new CartaBurnout("Reclamar com o professor", "Você vai até a sala do Professor reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 2 cafeínas \nVeneno: 3", 2, 3, inimigo));
+        //carta nova
+        compra.push(new CartaBurnout("Criar grupo de estudos", "Você e alguns amigos criam um grupo de estudos para a disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 3 cafeínas \nVeneno: 5", 3, 5, inimigo));
 
 
         //Criação das cartas de Lock-In
-        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", " Você dá Lock-In no fim de semana, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs de força: 3", 2, 3, heroi));
-        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", " Você dá Lock-In durante o dia, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs de força: 2", 2, 2, heroi));
+        compra.push(new CartaLockin("Tirar o fim de semana pra estudar", "Você dá Lock-In no fim de semana, aumentando sua eficiência \nCusto: 3 cafeínas \nBonûs de força: 3", 3, 3, heroi));
+        compra.push(new CartaLockin("Tirar o dia pra estudar", "Você dá Lock-In durante o dia, aumentando sua eficiência \nCusto: 2 cafeínas \nBonûs de força: 2", 2, 2, heroi));
+        //carta nova
+        compra.push(new CartaLockin("Virar a noite no IC", "O que você faz das 23h até as 6h da manhã? Exatamente, nada! Por isso você aproveita esse tempo para dar um Lock-In \nCusto: 3 cafeínas \nBonûs de força: 2", 3, 2, heroi));
         
 
 
