@@ -13,6 +13,10 @@ public class App {
     public static final String COLOR_ORANGE = "\u001B[38;5;208m";
     public static final String COLOR_PINK = "\u001B[95m";
 
+    /**
+    *Função main, a primeira a ser chamada que permite o código rodar
+    *@throws InterruptedException Para controle de tempo da interface
+    */
     public static void main(String[] args) throws InterruptedException{
         
         //Pré definições

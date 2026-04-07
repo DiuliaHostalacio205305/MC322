@@ -1,9 +1,22 @@
+/**
+ * Efeito análogo a um veneno, tira vida de Entidades progressivamente. 
+ * O dano causado é igual ao valor do acúmulo do efeito na Entidade naquele momento, 
+ * ou seja, se o acúmulo na rodada do efeito Burnout é igual a 3, o dano causado será igual a 3.
+ * O acúmulo diminui em 1 a cada rodada que passa, até chegar em 0, onde o efeito acaba.
+ * Herda da classe Efeito {@link Efeito}
+ */
 public class Burnout extends Efeito {
     //efeito análogo ao veneno 
     public Burnout(String nome, String descricao, Entidade dono, int acumulos){
         super(nome, descricao, dono, acumulos);
     }
 
+    /**
+     *Notifica o efeito Burnout que a rodada acabou e que é o momento de causar dano, bem como diminuir o acúmulo.
+     *Desenscreve o efeito do Publisher, a classe Combate, caso acúmulo = 0. {@link Combate}
+     *@param evento Estado atual da rodada que está ocorrendo, início, ataque do herói, dano do herói, fim da rodada.
+     *@param combate classe que controla o sistema de notificações.
+     */
     @Override
     public void serNotificado(Evento evento, Combate combate){
         if(evento == Evento.FIM){ //se estiver no final da rodada

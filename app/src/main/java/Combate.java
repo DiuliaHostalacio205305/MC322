@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Gerencia o fluxo de batalha entre o Herói e o Inimigo
- * Esta classe implementa o padrão Observer para notificar efeitos 
+ * Esta classe implementa o padrão Observer, agindo como o Publisher, para notificar efeitos 
  */
 public class Combate {
 

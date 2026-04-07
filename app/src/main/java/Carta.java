@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 public class Carta {
     
     private String nome;
