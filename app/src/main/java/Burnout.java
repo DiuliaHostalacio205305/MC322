@@ -15,7 +15,7 @@ public class Burnout extends Efeito {
      *Notifica o efeito Burnout que a rodada acabou e que é o momento de causar dano, bem como diminuir o acúmulo.
      *Desenscreve o efeito do Publisher, a classe Combate, caso acúmulo = 0. {@link Combate}
      *@param evento Estado atual da rodada que está ocorrendo, início, ataque do herói, dano do herói, fim da rodada.
-     *@param combate classe que controla o sistema de notificações.
+     *@param combate classe que controla o sistema de notificações (age como Publisher).
      */
     @Override
     public void serNotificado(Evento evento, Combate combate){

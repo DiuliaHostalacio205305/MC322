@@ -1,3 +1,7 @@
+/**
+ *Classe que cria as cartas associadas ao efeito Lockin (força)) {@link Lockin}.
+ Herda de Carta {@link Carta} e permite utilizar o efeito de Lockin em alguma entidade
+ */
 public class CartaLockin extends Carta{
 
     public static final String COLOR_RESET = "\u001B[0m";
@@ -19,6 +23,13 @@ public class CartaLockin extends Carta{
         this.alvoEntidade = alvoEntidade;
     }
 
+    /**
+     * É uma sobrescrição de usar de Carta que permite utilizar a carta de lockin criada.
+     * Causa o efeito na entidade desejada, dependendo de qual delas utilizou a carta e cria o novo efeito Lockin
+     para ser inscrito na lista de efeitos ativos.
+     * @param tabuleiro Classe que contém todas as "peças" do jogo, herói, inimigo e todas as cartas existentes.
+     * @param combate Classe que controla o fluxo do jogo.
+     */
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
         System.out.println(COLOR_PINK + "Usando a carta '" + getName());

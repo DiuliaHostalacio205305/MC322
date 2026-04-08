@@ -1,3 +1,6 @@
+/**
+ *Classe elementar que define as estruturas básicas e comuns a todos os tipos de Entidades contidas no jogo.
+ */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +18,10 @@ public abstract class Entidade {
         this.efeitosAtivos = new ArrayList<>();
     }
 
+    /**
+     * Versão elementar da função que permite que as Entidades sofram dano no jogo, comum a todas as entidades.
+     * @param dano O dano que a entidade está recebendo.
+     */
     public void receberDano(int dano){
         int danoRestante = dano;
         if(escudo - dano <= 0){ //se der mais dano que o escudo do personagem
@@ -27,6 +34,10 @@ public abstract class Entidade {
         }
     }
 
+    /**
+     * Versão elementar da função que permite que as Entidades recebam escudo no jogo, comum a todas as entidades.
+     * @param shield O escudo que a entidade está recebendo.
+     */
     public void ganharEscudo(int shield){ //muda internamente o valor das variáveis
         if(this.escudo + shield > 3){
             this.escudo = 3;
@@ -35,6 +46,10 @@ public abstract class Entidade {
         }
     }
 
+    /**
+     * Checa se a entidade está viva, isto é, se sua vida é maior que 0 Hp.
+     * @return booleano, true se vivo, false se morto.
+     */
     public boolean estaVivo(){
         if (vida <= 0){ //se ele morreu, retorna falso
             return false;
@@ -42,35 +57,67 @@ public abstract class Entidade {
         return true;
     }
 
+    /**
+     * Acessa e retorna o nome da entidade.
+     * @return O nome da entidade (String)
+     */
     public String getName(){
         return this.nome;
     }
 
+    /**
+     * Acessa e retorna a vida atual da entidade.
+     * @return A vida atual da entidade (int)
+     */
     public int getVida(){
         return this.vida;
     }
 
+    /**
+     * Acessa e retorna o escudo atual da entidade.
+     * @return O escudo da entidade (int)
+     */
     public int getEscudo(){
         return escudo;
     }
 
+    /**
+     * Permite que o escudo da entidade seja modificado ao longo das rodadas.
+     */
     public void resetaEscudo(){
         this.escudo = 0; //chamar toda vez que reiniciar a jogada
     }
 
+    /**
+     * Atribui à entidade o nome escolhido
+     * @param nome O novo nome da entidade
+     */
     public void setNome(String nome){
         this.nome = nome;
     }
 
+    /**
+     * Permite que o novo efeito ativo na entidade seja utilizado, ou seja, inscreve e coloca o efeito na
+     * lista de efeitos ativos {@link efeitosAtivos}.
+     * @param efeito O efeito que será adicionado e ativado.
+     */
     public void usarEfeito(Efeito efeito){ //tem que colocar o caso aqui da entidade já ter o efeito, dai tem que somar os acumulos
         this.efeitosAtivos.add(efeito);
         //acho que dá pra colocar um print aq falando q o fulano recebeu um efeito novo ou algo assim
     }
 
+    /**
+     * Remove o efeito que acabou da entidade, ou seja, o retira da lista de efeitos ativos {@link efeitosAtivos}.
+     * @param efeito O efeito que será retirado e desativado.
+     */
     public void excluirEfeito(Efeito efeito){
         this.efeitosAtivos.remove(efeito);
     }
 
+    /**
+     * Acessa e retorna o valor do efeito lockin (força) ativo na entidade.
+     * @return O valor do efeito lockin (int).
+     */
     public int getLockin(){
         int total = 0;
         for(int i = 0; i < this.efeitosAtivos.size(); i++){ //roda a lista de efeitos ativos
@@ -82,6 +129,10 @@ public abstract class Entidade {
         return total;
     }
 
+    /**
+     * Acessa e retorna o valor do efeito burnout (veneno) ativo na entidade.
+     * @return O valor do efeito burnout (int).
+     */
     public int getBurnout(){
         int total = 0;
         for(int i = 0; i < this.efeitosAtivos.size(); i++){

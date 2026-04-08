@@ -3,6 +3,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Classe que contém todas as "peças" do jogo, cartas de dano, escudo, burnout e lockin, herói e inimigo.
+ * É também a classe que controla a mão do jogador, agindo como um baralho (compra, descarte e reshuffle). {@link Stack} {@link List}.
+ */
+
 public class Tabuleiro {
     private Heroi heroi;
     private Inimigo inimigo;
@@ -15,14 +20,25 @@ public class Tabuleiro {
         this.inimigo = inimigo;
     }
 
+    /**
+     * Acessa e retorna o herói do jogo
+     * @return O herói do jogo
+     */
     public Heroi getHeroi(){
         return heroi;
     }
 
+    /**
+     * Acessa e retorna o inimigo do jogo
+     * @return O inimigo do jogo
+     */
     public Inimigo getInimigo(){
         return inimigo;
     }
 
+    /**
+     * Inicia a partida, instanciando as entidades necessárias e criando todas as cartas do baralho disponíveis.
+     */
     public void iniciarPartida(){
         
         //Criação das cartas de dano
@@ -67,6 +83,9 @@ public class Tabuleiro {
         Collections.shuffle(compra);
     }
 
+    /**
+     * Compra uma carta para o jogador, adicionando a carta comprada à mão do herói.
+     */
     public void comprarCarta(){
         if (!compra.isEmpty()){
             mao.add(compra.pop());
@@ -82,6 +101,12 @@ public class Tabuleiro {
         }
     }
 
+    /**
+     * Permite a utilização da carta que o jogador escolher.
+     * @param indice Posição da carta que o jogador escolheu na mão do herói {@link List}.
+     * @param tabuleiro Classe que contém todas as "peças" do jogo, herói, inimigo e todas as cartas existentes.
+     * @param combate Classe que controla o fluxo do jogo.
+     */
     public void usarCarta(int indice, Tabuleiro tabuleiro, Combate combate){
         if (indice - 1 >= 0 && indice <= mao.size()){ //lembrar que o indice começa em 0
             Carta cartaEscolhida = mao.remove(indice - 1);
@@ -90,7 +115,10 @@ public class Tabuleiro {
         }
     }
 
-    //Mostra a mão do jogador
+    /**
+     * Permite a visualização da mão do herói, imprimindo as opções de escolha atuais.
+     * @throws InterruptedException
+     */
     public void exibirMao() throws InterruptedException{
         System.out.println("\n--- Sua Mão ---\n");
 
@@ -105,13 +133,19 @@ public class Tabuleiro {
 
     }
 
-    //Limpa a mão do jogador no fim da rodada
+    /**
+     * Limpa a mão do jogador ao fim da rodada
+     */
     public void limparMao(){
         while (!mao.isEmpty()) {
         descarte.push(mao.remove(0)); //Remove da mão e joga no descarte quando acaba o turno do heroí
         }
     }
 
+    /**
+     * Acessa e retorna a mão do herói, isto é, as cartas disponíveis para escolha
+     * @return A mão do herói
+     */
     public List<Carta> getMao(){
         return mao;
     }

@@ -1,3 +1,7 @@
+/**
+ *Classe que cria as cartas associadas ao efeito Burnout (veneno) {@link Burnout}.
+ Herda de Carta {@link Carta} e permite utilizar o efeito de Burnout em alguma entidade
+ */
 public class CartaBurnout extends Carta{
 
     public static final String COLOR_RESET = "\u001B[0m";
@@ -19,6 +23,13 @@ public class CartaBurnout extends Carta{
         this.alvoEntidade = alvoEntidade;
     }
 
+    /**
+     * É uma sobrescrição de usar de Carta que permite utilizar a carta de burnout criada.
+     * Causa o efeito na entidade desejada, dependendo de qual delas utilizou a carta e cria o novo efeito Burnout
+     para ser inscrito na lista de efeitos ativos.
+     * @param tabuleiro Classe que contém todas as "peças" do jogo, herói, inimigo e todas as cartas existentes.
+     * @param combate Classe que controla o fluxo do jogo.
+     */
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
         System.out.println(COLOR_PINK + "Usando a carta '" + getName());

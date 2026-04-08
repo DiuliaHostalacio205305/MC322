@@ -1,7 +1,7 @@
-/*
-- Atributos: nome, custo
-- Métodos: usar*/
-
+/**
+ *Classe que cria as cartas que causam dano.
+ Herda de Carta {@link Carta} e permite causar dano imediato em alguma entidade Inimigo {@link Inimigo}.
+ */
 public class CartaDano extends Carta{
     
     private int dano;
@@ -14,6 +14,12 @@ public class CartaDano extends Carta{
         this.dano = dano;
     }
 
+    /**
+     * É uma sobrescrição de usar de Carta que permite utilizar a carta de dano criada.
+     * Causa o dano em qualquer entidade inimigo {@link Inimigo} e retira cafeína do herói {@link Heroi}.
+     * @param tabuleiro Classe que contém todas as "peças" do jogo, herói, inimigo e todas as cartas existentes.
+     * @param combate Classe que controla o fluxo do jogo.
+     */
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
         //Avisa que o heroi atacou
@@ -31,6 +37,10 @@ public class CartaDano extends Carta{
         }
     }
     
+    /**
+     * Acessa e retorna o dano causado pela carta
+     * @return O dano causado (int)
+     */
     public int getDano(){
         return dano;
     }
