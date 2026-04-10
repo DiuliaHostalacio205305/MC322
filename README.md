@@ -32,13 +32,24 @@
             . Caso o jogador ganhe, ou seja, mate o inimigo antes de perder toda a sua vida, significa que o calouro foi aprovado e passou na matéria!
             . Caso o jogador perca, ou seja, perca sua vida antes de matar o inimigo, significa que o calouro foi reprovado e precisará refazer a matéria.
 
+## Novas Cartas (Tarefa 4):
+O baralho foi expandido com 5 novas cartas:
+     - Ler um livro (Dano): Tal como seus antepassados, você decide ler 'Entendendo Algoritmos'. (Custo: 3 / Dano: 5).
+     - Olhar os slides (Dano): Uma relida rápida nos slides da aula. (Custo: 1 / Dano: 2).
+     - Comprar um teclado gamer (Escudo): Não ajuda na prática, mas você se sente psicologicamente preparado. (Custo: 2 / Escudo: 2).
+     - Criar grupo de estudos (Burnout): Estudar com amigos deixa a disciplina momentaneamente mais fácil, aplicando veneno no inimigo. (Custo: 3 / Veneno: 5) .
+     - Virar a noite no IC (Lock-in): Aproveitar a madrugada para focar totalmente, aumentando sua força. (Custo: 3 / Força: 2)
 
 ## Compilação e execução do programa:
+O projeto agora utiliza o Gradle para automação de build e gerenciamento de tarefas.
     - Para compilar o programa basta utilizar este comando no terminal:
-        ```javac -d bin $(find src -name "*.java")```
+        ```./gradlew build```
     
     - Para executar o programa, faça:
-        ```java -cp bin App```
+        ```./gradlew run```
+    
+    - Para gerar a documentação tecnica, faça:
+        ```./gradlew javadoc```
 
 Aproveite a experiência imersiva deste jogo incrível!
 

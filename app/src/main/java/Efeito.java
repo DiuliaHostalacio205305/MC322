@@ -8,6 +8,13 @@ public abstract class Efeito {
     private Entidade dono;
     private int acumulos;
 
+    /**
+     * Construtor base para a criação de um efeito.
+     * @param nome O nome identificador do efeito.
+     * @param descricao Texto explicativo sobre o que o efeito faz.
+     * @param dono A entidade que está sob a influência deste efeito.
+     * @param acumulos A intensidade inicial/duração em turnos do efeito.
+     */
     public Efeito(String nome, String descricao, Entidade dono, int acumulos){
         this.nome = nome;
         this.dono = dono;

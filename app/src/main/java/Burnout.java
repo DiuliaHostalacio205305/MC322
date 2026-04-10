@@ -6,7 +6,14 @@
  * Herda da classe Efeito {@link Efeito}
  */
 public class Burnout extends Efeito {
-    //efeito análogo ao veneno 
+    
+    /**
+     * Construtor da classe Burnout.
+     * @param nome O nome identiifcador do efeito
+     * @param descricao Texto explicando o que o Burnout causará à entidade.
+     * @param dono A Entidade (Heroi ou Inimigo) que está sofrendo o efeito.
+     * @param acumulos A intensidade/número de turnos que o efeito durará.
+     */
     public Burnout(String nome, String descricao, Entidade dono, int acumulos){
         super(nome, descricao, dono, acumulos);
     }
@@ -19,15 +26,14 @@ public class Burnout extends Efeito {
      */
     @Override
     public void serNotificado(Evento evento, Combate combate){
-        if(evento == Evento.FIM){ //se estiver no final da rodada
+        if(evento == Evento.FIM){ 
             int dano = this.getAcumulo(); //no caso, o dano que a entidade sofrerá é o acúmulo da rodada
             getDono().receberDano(dano);
             
             this.setAcumulo(this.getAcumulo() - 1); //seta um novo acumulo retirando 1
             
-            //acho que vai precisar de algo que barre no 0, ou reset pra que o acumulo minimo seja 0
             if(this.getAcumulo() <= 0){
-                System.out.println("O efeito do veneno acabou!"); //mudar esse print
+                System.out.println("O efeito do veneno acabou!");
                 this.getDono().excluirEfeito(this);
                 combate.unsubscribe(this);
             }

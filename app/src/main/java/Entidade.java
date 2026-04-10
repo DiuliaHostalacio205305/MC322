@@ -11,6 +11,12 @@ public abstract class Entidade {
     private int escudo;
     private List<Efeito> efeitosAtivos;
     
+    /**
+     * Construtor da classe Entidade.
+     * @param nome O nome que identifica a entidade no jogo.
+     * @param vida A quantidade de pontos de vida da entidade.
+     * @param escudo A quantidade de pontos de escudo da entidade.
+     */
     public Entidade(String nome, int vida, int escudo){
         this.nome = nome;
         this.vida = vida;
@@ -51,7 +57,7 @@ public abstract class Entidade {
      * @return booleano, true se vivo, false se morto.
      */
     public boolean estaVivo(){
-        if (vida <= 0){ //se ele morreu, retorna falso
+        if (vida <= 0){ 
             return false;
         }
         return true;
@@ -85,7 +91,7 @@ public abstract class Entidade {
      * Permite que o escudo da entidade seja modificado ao longo das rodadas.
      */
     public void resetaEscudo(){
-        this.escudo = 0; //chamar toda vez que reiniciar a jogada
+        this.escudo = 0; 
     }
 
     /**
@@ -103,7 +109,6 @@ public abstract class Entidade {
      */
     public void usarEfeito(Efeito efeito){ //tem que colocar o caso aqui da entidade já ter o efeito, dai tem que somar os acumulos
         this.efeitosAtivos.add(efeito);
-        //acho que dá pra colocar um print aq falando q o fulano recebeu um efeito novo ou algo assim
     }
 
     /**

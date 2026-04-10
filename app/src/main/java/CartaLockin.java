@@ -17,6 +17,14 @@ public class CartaLockin extends Carta{
     private int strenght; 
     private Entidade alvoEntidade;
 
+    /**
+     * Construtor da classe CartaLockin.
+     * @param nome O nome identificador da carta.
+     * @param descricao Texto que descreve o efeito ao jogador.
+     * @param custo O custo em cafeína da carta.
+     * @param strenght A intensidade (número de acúmulos) do efeito.
+     * @param alvoEntidade A entidade que será beneficiada pelo efeito.
+     */
     public CartaLockin(String nome, String descricao, int custo, int strenght, Entidade alvoEntidade){
         super(nome, descricao, custo);
         this.strenght = strenght;
@@ -44,7 +52,7 @@ public class CartaLockin extends Carta{
         }
         Lockin novaLockin = new Lockin(this.getName(), this.getDescricao(), alvo, strenght); 
         alvo.usarEfeito(novaLockin);
-        combate.subscribe(novaLockin); //inscreve a Lock-in para ser notificada
+        combate.subscribe(novaLockin); 
     }
 
 }

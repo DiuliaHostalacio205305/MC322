@@ -9,6 +9,13 @@ public class CartaEscudo extends Carta {
     public static final String colorReset = "\u001B[0m";
     public static final String colorBlue = "\u001B[94m";
 
+    /**
+     * Construtor da classe CartaEscudo.
+     * @param nome O nome identificador da carta.
+     * @param descricao Texto que descreve o escudo para o jogador.
+     * @param custo O custo em cafeína necessário para utilizar o escudo.
+     * @param escudo A quantidade de pontos de escudo que a carta fornece, com o limite de 3 por rodada.
+     */
     public CartaEscudo(String nome, String descricao, int custo, int escudo){
         super(nome, descricao, custo);
         this.escudo = escudo;

@@ -7,6 +7,13 @@ public class Carta {
     private String descricao;
     private int custo;
 
+    /**
+     * Construtor da classe Carta.
+     * Inicializa os atributos básicos necessários para qualquer carta do jogo.
+     * @param nome O nome identificador da carta.
+     * @param descricao O texto que explica o que a carta faz quando usada.
+     * @param custo O valor em cafeína necessário para jogar esta carta.
+     */
     public Carta(String nome, String descricao, int custo){
         this.nome = nome;
         this.descricao = descricao;

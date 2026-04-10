@@ -18,9 +18,15 @@ public class Inimigo extends Entidade{
     public static final String COLOR_PINK = "\u001B[95m";
 
 
-    private int intencao; //o ataque do inimigo vai ficar salvo aqui
+    private int intencao; //guarda qual será o ataque do Inimigo
     int vidaMax;
 
+    /**
+     * Construtor da classe Inimigo.
+     * @param nome O nome que identifica o inimigo no jogo.
+     * @param vida A quantidade de pontos de vida do inimigo.
+     * @param escudo A quantidade de pontos de escudo do inimigo.
+     */
     public Inimigo(String nome, int vida, int escudo, int vidaMax){
         super(nome, vida, escudo);
         this.vidaMax = vidaMax; 
@@ -148,6 +154,3 @@ public class Inimigo extends Entidade{
         }
     }
 }
-
-
-//Ideias de nomes de ataques: erro de compilação, esqueceu o ;, deu time limit, caiu num loop infinito

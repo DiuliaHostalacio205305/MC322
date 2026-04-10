@@ -8,6 +8,15 @@ public class Heroi extends Entidade{
     private int escudoMax;
     private int vidaMax;
 
+    /**
+     * Construtor da classe Heroí.
+     * @param nome O nome escolhido para o heroí.
+     * @param vida A quantidade de pontos de vida atuais do heroí.
+     * @param escudo A quantidade de pontos de escudo atuais do heroí.
+     * @param cafeina A quantidade de cafeina atual do heroí.
+     * @param escudoMax O valor máximo que escudo pode chegar
+     * @param vidaMax A vida maxima que o heroí pode chegar, a vida ínical. 
+     */
     public Heroi(String nome, int vida, int escudo, int cafeina, int escudoMax, int vidaMax){
         super(nome, vida, escudo);
         this.cafeina = cafeina;

@@ -9,6 +9,13 @@ public class CartaDano extends Carta{
     public static final String colorReset = "\u001B[0m";
     public static final String colorRed = "\u001B[31m";
 
+    /**
+     * Construtor da classe CartaDano.
+     * @param nome O nome identificador da carta.
+     * @param descricao Texto que descreve o ataque para o jogador.
+     * @param custo O custo em cafeína necessário para realizar o ataque.
+     * @param dano A quantidade de pontos de dano que a carta causa.
+     */
     public CartaDano(String nome, String descricao, int custo, int dano){
         super(nome, descricao, custo);
         this.dano = dano;
@@ -22,7 +29,6 @@ public class CartaDano extends Carta{
      */
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
-        //Avisa que o heroi atacou
         combate.notify(Evento.ATAQUE_HEROI);
         System.out.println(colorOrange + "\nUsando a carta: " + getName());
         System.out.println("Você deu " + (getDano() + combate.getHeroi().getLockin()) + " de dano!");
