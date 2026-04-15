@@ -62,5 +62,14 @@ public class Batalha {
                                 "           `.");
             System.out.println("UAU! PARABÉNS!\nApós muita luta e muitos desafios, você conseguiu graduar! Você acha que melhora? haha... Seja feliz no mercado de trabalho!");
         }
+    //Se o jogador não tiver chegado no fim do jogo
+    System.out.println("Escolha sua próxima batalha com sabedoria... e se a DAC deixar");
+    for(int i = 0; i < this.proximasBatalhas.size(); i++){ //percorre a lista das próximas batalhas (que contém os nós filhos)
+        System.out.println("\n" + (i + 1) + " - " + this.proximasBatalhas.get(i).inimigoAtual.getName());
+    }
+    System.out.println("Digite o número da sua escolha:");
+    int escolha = scanner.nextInt();
+    Batalha prox = this.proximasBatalhas.get(escolha - 1);
+    prox.iniciar(heroi, scanner, tabuleiro); //chama a próxima batalha escolhida pelo jogador
     }
 }

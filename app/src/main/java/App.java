@@ -23,7 +23,27 @@ public class App {
         Heroi heroi = new Heroi("Calouro", 30, 0, 4, 3, 30);
         Inimigo inimigo = new Inimigo("MC102", 25, 0, 25);
         Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo); //é o baralho de cartas e personagens
-        Combate combate = new Combate(heroi, inimigo, tabuleiro); //é o controlador do fluxo de batalha e publisher
+
+        //Pré definições da árvore mapa
+        //Nível 1
+        Batalha raiz = new Batalha(new Inimigo("MC102", 25, 0, 25));
+        //Nível 2
+        Batalha no2 = new Batalha(new Inimigo("MC202", 50, 1, 50));
+        Batalha no3 = new Batalha(new Inimigo("MC358", 35, 0, 35));
+        //Nível 3
+        Batalha no4 = new Batalha(new Inimigo("MC322", 30, 0, 30));
+        Batalha no5 = new Batalha(new Inimigo("MC404", 35, 0, 35));
+        Batalha no6 = new Batalha(new Inimigo("MC458", 40, 0, 40));
+        Batalha no7 = new Batalha(new Inimigo("MC558", 42, 0, 42));
+
+        raiz.adicionarNo(no2);
+        raiz.adicionarNo(no3);
+
+        no2.adicionarNo(no4);
+        no2.adicionarNo(no5);
+
+        no3.adicionarNo(no6);
+        no3.adicionarNo(no7);
         
         tabuleiro.iniciarPartida(); //Preenche e embaralha o deck de cartas
 
@@ -40,7 +60,7 @@ public class App {
         String nome_personagem = scanner.nextLine(); //lê o que foi digitado pelo usuário
         heroi.setNome(nome_personagem); //atribuí o novo nome ao personagem
 
-        combate.fluxoCombate();
+        raiz.iniciar(heroi, scanner, tabuleiro);
         scanner.close();
     }
 }
