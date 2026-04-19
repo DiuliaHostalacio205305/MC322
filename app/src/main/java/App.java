@@ -21,8 +21,7 @@ public class App {
         
         //Pré definições
         Heroi heroi = new Heroi("Calouro", 30, 0, 4, 3, 30);
-        Inimigo inimigo = new Inimigo("MC102", 25, 0, 25);
-        Tabuleiro tabuleiro = new Tabuleiro(heroi, inimigo); //é o baralho de cartas e personagens
+        Tabuleiro tabuleiro = new Tabuleiro(heroi); //é o baralho de cartas e personagens
 
         //Pré definições da árvore mapa
         //Nível 1

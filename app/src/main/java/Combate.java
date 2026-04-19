@@ -166,7 +166,7 @@ public class Combate {
     }
 
     /** @return O inimigo do combate. */
-    public Entidade getInimigo(){
+    public Inimigo getInimigo(){
         return inimigo;
     }
 

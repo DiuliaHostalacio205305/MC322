@@ -10,14 +10,12 @@ import java.util.List;
 
 public class Tabuleiro {
     private Heroi heroi;
-    private Inimigo inimigo;
     private Stack<Carta> compra = new Stack<>();
     private Stack<Carta> descarte = new Stack<>();
     private List<Carta> mao = new ArrayList<>();
 
-    public Tabuleiro(Heroi heroi, Inimigo inimigo){
+    public Tabuleiro(Heroi heroi){
         this.heroi = heroi;
-        this.inimigo = inimigo;
     }
 
     /**
@@ -28,13 +26,13 @@ public class Tabuleiro {
         return heroi;
     }
 
-    /**
-     * Acessa e retorna o inimigo do jogo
-     * @return O inimigo do jogo
-     */
-    public Inimigo getInimigo(){
-        return inimigo;
-    }
+    ///**
+    // * Acessa e retorna o inimigo do jogo
+    // * @return O inimigo do jogo
+    // */
+    //public Inimigo getInimigo(){
+    //    return inimigo;
+    //}
 
     /**
      * Inicia a partida, instanciando as entidades necessárias e criando todas as cartas do baralho disponíveis.
@@ -66,10 +64,10 @@ public class Tabuleiro {
 
         
         //Criação das cartas de Burnout (Veneno)
-        compra.push(new CartaBurnout("Reclamar com o Coordenador do curso", "Você vai até a sala do Coordenador reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 3 cafeínas \nVeneno: 4", 3, 4, inimigo));
-        compra.push(new CartaBurnout("Reclamar com o professor", "Você vai até a sala do Professor reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 2 cafeínas \nVeneno: 3", 2, 3, inimigo));
+        compra.push(new CartaBurnout("Reclamar com o Coordenador do curso", "Você vai até a sala do Coordenador reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 3 cafeínas \nVeneno: 4", 3, 4, null));
+        compra.push(new CartaBurnout("Reclamar com o professor", "Você vai até a sala do Professor reclamar da dificuldade da disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 2 cafeínas \nVeneno: 3", 2, 3, null));
         //carta nova
-        compra.push(new CartaBurnout("Criar grupo de estudos", "Você e alguns amigos criam um grupo de estudos para a disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 3 cafeínas \nVeneno: 5", 3, 5, inimigo));
+        compra.push(new CartaBurnout("Criar grupo de estudos", "Você e alguns amigos criam um grupo de estudos para a disciplina, deixando ela mais fácil (momentâneamente) \nCusto: 3 cafeínas \nVeneno: 5", 3, 5, null));
 
 
         //Criação das cartas de Lock-In
