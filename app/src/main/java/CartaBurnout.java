@@ -32,7 +32,7 @@ public class CartaBurnout extends Carta{
      */
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
-        System.out.println(COLOR_PINK + "Usando a carta '" + getName());
+        System.out.println(COLOR_PINK + "Usando a carta '" + getName() + "'");
         Entidade alvo;
         if(this.alvoEntidade == combate.getHeroi()){ //significa que o alvo da carta é o herói, o inimigo está atacando
             alvo = combate.getHeroi();

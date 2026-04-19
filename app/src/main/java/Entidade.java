@@ -88,6 +88,10 @@ public abstract class Entidade {
         this.escudo = 0; //chamar toda vez que reiniciar a jogada
     }
 
+    public void limpaEfeitos() {
+        this.efeitosAtivos.clear();
+    }
+
     /**
      * Atribui à entidade o nome escolhido
      * @param nome O novo nome da entidade

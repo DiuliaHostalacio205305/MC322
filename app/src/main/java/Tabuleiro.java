@@ -40,11 +40,11 @@ public class Tabuleiro {
     public void iniciarPartida(){
         
         //Criação das cartas de dano
-        compra.push(new CartaDano("Ir na monitoria do Gustavo", "Você vai na monitoria e tira uma dúvida \nCusto: 3 cafeína \nDano: 6", 3, 6));
-        compra.push(new CartaDano("Ir na monitoria da Lia", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 2, 5));
-        compra.push(new CartaDano("Ir na monitoria do Giovanne", "Você vai na monitoria e tira uma dúvida \nCusto: 3 cafeína \nDano: 6", 3, 6));
-        compra.push(new CartaDano("Ir na monitoria da Mariana", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 5", 2, 5));
-        compra.push(new CartaDano("Ir na aula", "Você vai na aula e aprende a matéria \nCusto: 2 cafeína \nDano: 3", 2, 3));
+        compra.push(new CartaDano("Ir na monitoria do Gustavo", "Você vai na monitoria e tira uma dúvida \nCusto: 3 cafeína \nDano: 20", 3, 20)); //era 6
+        compra.push(new CartaDano("Ir na monitoria da Lia", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 52", 2, 52)); //era 5
+        compra.push(new CartaDano("Ir na monitoria do Giovanne", "Você vai na monitoria e tira uma dúvida \nCusto: 3 cafeína \nDano: 60", 3, 60)); //era 6
+        compra.push(new CartaDano("Ir na monitoria da Mariana", "Você vai na monitoria e tira uma dúvida \nCusto: 2 cafeína \nDano: 50", 2, 50)); //era 5
+        compra.push(new CartaDano("Ir na aula", "Você vai na aula e aprende a matéria \nCusto: 2 cafeína \nDano: 30", 2, 30)); //era 3
         compra.push(new CartaDano("Pesquisar na Internet", "Você da uma pesquisada para resolver uma dúvida \nCusto: 1 cafeína \nDano: 3", 1, 3));
         compra.push(new CartaDano("Perguntar para o coleguinha (sem plágio)", "Você conversa com um amigo e descobre como ele já tinha resolvido um problema parecido \nCusto: 1 cafeína \nDano: 2", 1, 2));
         //carta nova
