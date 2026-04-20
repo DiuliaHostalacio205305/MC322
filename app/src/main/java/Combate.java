@@ -28,7 +28,8 @@ public class Combate {
     public static final String COLOR_ORANGE = "\u001B[38;5;208m";
     public static final String COLOR_PINK = "\u001B[95m";
 
-    Scanner scanner = new Scanner(System.in);
+    //inicialização do scanner para a leitura do terminal
+    private Scanner scanner;
 
     /**
      * Construtor da classe Combate
@@ -36,10 +37,11 @@ public class Combate {
      * @param inimigo O inimigo a ser combatido
      * @param tabuleiro O tabuleiro de cartas associado ao combate
      */
-    public Combate(Heroi heroi, Inimigo inimigo, Tabuleiro tabuleiro){
+    public Combate(Heroi heroi, Inimigo inimigo, Tabuleiro tabuleiro, Scanner scanner){
         this.heroi = heroi;
         this.inimigo = inimigo;
         this.tabuleiro = tabuleiro;
+        this.scanner = scanner;
     }
 
     /**
@@ -83,36 +85,13 @@ public class Combate {
         int acao = 5;
 
         while(heroi.estaVivo() && inimigo.estaVivo()){
-        
+        //Avisa que um novo turno começou
         this.notify(Evento.INICIO);
 
-        
-        //Texto de inicialização
-        System.out.println(COLOR_CYAN + "Olá! Seja bem-vindo ao curso de Computação da Unicamp!");
-        System.out.println("Para graduar você precisará passar por diversos desafios, bosses, irritações, surtos... Hm, quer dizer, adversários ótimos que te fortalecerão nessa aventura!");
-        System.out.println("Hoje, você pode até estar começando como um jovem e ingênuo programador de Python, ou apenas entusiasta da programação... mas não se preocupe, logo você perceberá que nem tudo é tão fácil quanto Python parece ser\n");
-        System.out.println(COLOR_PURPLE + "Cada batalha será um passo em direção ao seu sonho de se tornar um Desenvolvedor Sênior, e cada inimigo que derrotar te deixará mais perto desse objetivo (e um pouco mais doido também)\n" + COLOR_RESET);
-        System.out.println("Durante os combates, você começa atacando, e pode escolher entre:\n" + COLOR_LIGHT_GREEN + "- Carta de Ataque\n" + COLOR_CYAN + "- Carta de Efeito\n"  + COLOR_ORANGE + "- Carta de Escudo\n" + COLOR_RED + "- Encerrar seu turno\n\n" + COLOR_YELLOW + "Lembrando que cada ação gastará uma certa quantidade da sua cafeína total, o cafézinho que você toma do IC... então gaste com sabedoria, porque nem sempre a máquina de café funciona...\n" + COLOR_RESET);
-        System.out.println("Pronto para começar?\nEscolha um nome para o seu personagem:");
-        
-        //Define o nome do personagem
-        String nome_personagem = scanner.nextLine(); 
-        heroi.setNome(nome_personagem); 
-        
         /*TURNO DO HEROÍ */
             /*PRIMEIRA RODADA */
             if(nRodada == 1){
-                System.out.println(COLOR_PURPLE + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + heroi.getName() + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + COLOR_RESET); 
-                System.out.println(COLOR_CYAN + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o \n");
-                System.out.println("╔════════════════════════════════════════════╗\r\n" + //
-                                        "║ ███╗   ███╗ ██████╗ ██╗ ██████╗ ██████╗    ║\r\n" + //
-                                        "║ ████╗ ████║██╔════╝███║██╔═████╗╚════██╗   ║\r\n" + //
-                                        "║ ██╔████╔██║██║     ╚██║██║██╔██║ █████╔╝   ║\r\n" + //
-                                        "║ ██║╚██╔╝██║██║      ██║████╔╝██║██╔═══╝    ║\r\n" + //
-                                        "║ ██║ ╚═╝ ██║╚██████╗ ██║╚██████╔╝███████╗   ║\r\n" + //
-                                        "║ ╚═╝     ╚═╝ ╚═════╝ ╚═╝ ╚═════╝ ╚══════╝   ║\r\n" + //
-                                        "╚════════════════════════════════════════════╝" + COLOR_RESET);
-                System.out.println(COLOR_RED + "\n- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'" + COLOR_RESET);
+                inimigo.falaRodada1(heroi);
                 inimigo.randomizarAtaque();
                 inimigo.imprimeAcaoInimigo(inimigo.getIntencao());
                 
@@ -123,11 +102,14 @@ public class Combate {
                 acao = scanner.nextInt();
                 this.escolhaAcoesHeroi(acao);
                 nRodada += 1;
+                if (algmMorreu(inimigo)){
+                    break;
+                }
             }
             /*RESTANTE DAS RODADAS */
             if(nRodada != 1){
-                while (acao !=0 && heroi.getCafeina() > 0){
-                    System.out.println(COLOR_GREEN + "\nÉ sua vez novamente!" + COLOR_RESET);
+                while (acao !=0 && heroi.getCafeina() > 0 && inimigo.getVida() > 0){
+                    System.err.println(COLOR_GREEN + "\nÉ sua vez novamente!" + COLOR_RESET);
                     Thread.sleep(1000);
                     printaStats(heroi, inimigo);
                     textoEscolha(heroi, tabuleiro);
@@ -135,13 +117,17 @@ public class Combate {
                     this.escolhaAcoesHeroi(acao);
                     if (algmMorreu(inimigo)){
                         break;
-                    }
                 }
+                }
+                if (algmMorreu(inimigo)){
+                    break;
+                }
+                //nRodada += 1; nn sei pq da pau :(
             }
 
             /*TURNO DOS INIMIGOS */
             inimigo.atacar(heroi, this, tabuleiro);
-            if(heroi.getVida() <= 0){
+            if(heroi.getVida() <= 0 && inimigo.getVida() > 0){
                     System.out.println("Vida de " + heroi.getName() + " = 0/" + heroi.getVida());
                     break;
                 }
@@ -155,7 +141,7 @@ public class Combate {
             acao = 5;
             heroi.setCafeina(4);
             heroi.resetaEscudo();
-            tabuleiro.limparMao(); 
+            tabuleiro.limparMao(); //Limpa a mao no final do turno
             comprarCartas(tabuleiro);
             System.out.println(COLOR_GREEN + "\nRODADA " + nRodada);
             inimigo.randomizarAtaque();
@@ -165,9 +151,10 @@ public class Combate {
             System.out.println(COLOR_RED + "\nOh nãooo... \nVocê reprovou :( \nPelo menos da para tentar de novo semestre que vem!" + COLOR_RESET);
         }
         if(inimigo.getVida() <= 0){
-                System.out.println(COLOR_RED + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + COLOR_RESET);
+                System.out.println(Cores.COLOR_GREEN + "\nParabéns!\nVocê passou na disciplina:)\nAproveite as suas férias!" + COLOR_RESET);
         }
-        scanner.close();
+        //fecha o scanner de leitura de terminal
+        //scanner.close();
     }
 
     /** @return O herói do combate. */
@@ -176,7 +163,7 @@ public class Combate {
     }
 
     /** @return O inimigo do combate. */
-    public Entidade getInimigo(){
+    public Inimigo getInimigo(){
         return inimigo;
     }
 

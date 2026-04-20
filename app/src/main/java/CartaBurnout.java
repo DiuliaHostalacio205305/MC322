@@ -17,14 +17,6 @@ public class CartaBurnout extends Carta{
     private int burnout;
     private Entidade alvoEntidade;
 
-    /**
-     * Construtor da classe CartaBurnout.
-     * @param nome O nome identificador da carta
-     * @param descricao Texto explicativo do efeito da carta.
-     * @param custo O custo em cafeína para utilizar a carta.
-     * @param burnout A intensidade (número de acúmulos) do efeito de Burnout.
-     * @param alvoEntidade A entidade que sofrerá a aplicação do efeito.
-     */
     public CartaBurnout(String nome, String descricao, int custo, int burnout, Entidade alvoEntidade){
         super(nome, descricao, custo);
         this.burnout = burnout;
@@ -40,7 +32,7 @@ public class CartaBurnout extends Carta{
      */
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
-        System.out.println(COLOR_PINK + "Usando a carta '" + getName());
+        System.out.println(COLOR_PINK + "Usando a carta '" + getName() + "'");
         Entidade alvo;
         if(this.alvoEntidade == combate.getHeroi()){ //significa que o alvo da carta é o herói, o inimigo está atacando
             alvo = combate.getHeroi();
