@@ -16,6 +16,13 @@ public class Inimigo extends Entidade{
     protected int intencao; //o ataque do inimigo vai ficar salvo aqui
     int vidaMax;
 
+    /**
+     * Construtor da classe Inimigo, com seus atributos básicos
+     * @param nome O nome do inimigo
+     * @param vida A vida atual do inimigo
+     * @param escudo O escudo atual do inimigo
+     * @param vidaMax A vida máxima, e inicial, do inimigo
+     */
     public Inimigo(String nome, int vida, int escudo, int vidaMax){
         super(nome, vida, escudo);
         this.vidaMax = vidaMax; 

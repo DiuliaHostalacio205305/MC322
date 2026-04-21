@@ -16,6 +16,14 @@ public class CartaDano extends Carta{
     public static final String colorReset = "\u001B[0m";
     public static final String colorRed = "\u001B[31m";
 
+    /**
+     * Construtor da classe CartaDano.
+     * Inicializa os atributos básicos necessários para a carta Dano do jogo.
+     * @param nome O nome identificador da carta.
+     * @param descricao O texto que explica o que a carta faz quando usada.
+     * @param custo O valor em cafeína necessário para jogar esta carta.
+     * @param dano O valor de dano que a carta causará ao ser usada
+     */
     public CartaDano(String nome, String descricao, int custo, int dano){
         super(nome, descricao, custo);
         this.dano = dano;

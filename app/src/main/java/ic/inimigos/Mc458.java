@@ -11,8 +11,18 @@ import ic.lógica.Tabuleiro;
 import ic.organização.Cores;
 import ic.organização.Prints;
 
+/**
+ * Classe que herda de Inimigo {@link Inimigo} e cria uma espécie de inimigo mais específica, MC458
+ */
 public class Mc458 extends Inimigo{
 
+    /**
+     * Construtor da classe Mc458, um tipo de inimigo do jogo que herda de Inimigo {@link Inimigo}
+     * @param nome O nome do inimigo
+     * @param vida A vida atual do inimigo
+     * @param escudo O escudo atual do inimigo
+     * @param vidaMax A vida máxima, e inicial, do inimigo
+     */
     public Mc458(String nome, int vida, int escudo, int vidaMax){
         super(nome, vida, escudo, vidaMax);
     }

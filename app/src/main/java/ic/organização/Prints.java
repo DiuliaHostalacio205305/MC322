@@ -1,5 +1,8 @@
 package ic.organização;
 
+/**
+ * Classe que contém os prints da tabela ASCII que são usadas durante o jogo
+ */
 public class Prints {
     
     public static final String BURNOUT = "⠀⠀⠀⠀⠀⠀⢱⣆⠀⠀⠀⠀⠀⠀\r\n" + //

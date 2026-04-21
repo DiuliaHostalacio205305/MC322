@@ -1,4 +1,8 @@
 package ic.organização;
+
+/**
+ * Classe que contém a declaração das variáveis de cor usadas em todos os arquivos
+ */
 public class Cores {
     
     //Definidores de cor

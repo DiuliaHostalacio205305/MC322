@@ -24,6 +24,15 @@ public class CartaBurnout extends Carta{
     private int burnout;
     private Entidade alvoEntidade;
 
+    /**
+     * Construtor da classe CartaBurnout.
+     * Inicializa os atributos básicos necessários para a carta Burnout do jogo.
+     * @param nome O nome identificador da carta.
+     * @param descricao O texto que explica o que a carta faz quando usada.
+     * @param custo O valor em cafeína necessário para jogar esta carta.
+     * @param burnout O valor de acúmulo de burnout (veneno) que a carta causará inicialmente
+     * @param alvoEntidade O alvo que a carta atingirá 
+     */
     public CartaBurnout(String nome, String descricao, int custo, int burnout, Entidade alvoEntidade){
         super(nome, descricao, custo);
         this.burnout = burnout;

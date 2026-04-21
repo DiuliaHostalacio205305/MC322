@@ -11,8 +11,18 @@ import ic.lógica.Tabuleiro;
 import ic.organização.Cores;
 import ic.organização.Prints;
 
+/**
+ * Classe que herda de Inimigo {@link Inimigo} e cria uma espécie de inimigo mais específica, MC102
+ */
 public class Mc102 extends Inimigo {
 
+    /**
+     * Construtor da classe Mc102, um tipo de inimigo do jogo que herda de Inimigo {@link Inimigo}
+     * @param nome O nome do inimigo
+     * @param vida A vida atual do inimigo
+     * @param escudo O escudo atual do inimigo
+     * @param vidaMax A vida máxima, e inicial, do inimigo
+     */
     public Mc102(String nome, int vida, int escudo, int vidaMax){
         super(nome, vida, escudo, vidaMax);
     }
