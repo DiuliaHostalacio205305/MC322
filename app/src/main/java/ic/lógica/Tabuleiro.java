@@ -1,4 +1,13 @@
+package ic.lógica;
 import java.util.Stack;
+
+import ic.cartas.Carta;
+import ic.cartas.CartaBurnout;
+import ic.cartas.CartaDano;
+import ic.cartas.CartaEscudo;
+import ic.cartas.CartaLockin;
+import ic.entidades.Heroi;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

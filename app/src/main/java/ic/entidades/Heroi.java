@@ -1,3 +1,5 @@
+package ic.entidades;
+
 /**
  *Classe que cria o herói do jogo.
  Herda de Entidade {@link Entidade}.

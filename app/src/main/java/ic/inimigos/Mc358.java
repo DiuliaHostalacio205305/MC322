@@ -1,6 +1,18 @@
-public class Mc322 extends Inimigo {
+package ic.inimigos;
+
+import ic.cartas.CartaBurnout;
+import ic.cartas.CartaDano;
+import ic.cartas.CartaEscudo;
+import ic.cartas.CartaLockin;
+import ic.entidades.Entidade;
+import ic.entidades.Heroi;
+import ic.lógica.Combate;
+import ic.lógica.Tabuleiro;
+import ic.organização.Cores;
+
+public class Mc358 extends Inimigo{
     
-    public Mc322(String nome, int vida, int escudo, int vidaMax){
+    public Mc358(String nome, int vida, int escudo, int vidaMax){
         super(nome, vida, escudo, vidaMax);
     }
 
@@ -8,12 +20,15 @@ public class Mc322 extends Inimigo {
     public void falaRodada1(Heroi heroi){
                 System.out.println(Cores.COLOR_PURPLE + "\nOlha como vocês crescem... já são veteranos agora \\ (^_^) /" + Cores.COLOR_RESET); 
         System.out.println(Cores.COLOR_CYAN + "Vamos começar a batalha!\nNessa próxima fase, seu oponente será o \n");
-        System.out.println("+==============================+\n" + //
-                        "| __  __  ___  ___  ___   ___  |\n" + //
-                        "|(  \\/  )/ __)(__ )(__ \\ (__ \\ |\n" + //
-                        "| )    (( (__  (_ \\ / _/  / _/ |\n" + //
-                        "|(_/\\/\\_)\\___)(___/(____)(____)|\n" + //
-                        "+==============================+" + Cores.COLOR_RESET);
+        System.out.println("···············································\n" + //
+                        ": __   __  _______  _______  _______   _____  :\n" + //
+                        ":|  |_|  ||       ||       ||       | |  _  | :\n" + //
+                        ":|       ||       ||___    ||   ____| | |_| | :\n" + //
+                        ":|       ||       | ___|   ||  |____ |   _   |:\n" + //
+                        ":|       ||      _||___    ||_____  ||  | |  |:\n" + //
+                        ":| ||_|| ||     |_  ___|   | _____| ||  |_|  |:\n" + //
+                        ":|_|   |_||_______||_______||_______||_______|:\n" + //
+                        "···············································" + Cores.COLOR_RESET);
         System.out.println(Cores.COLOR_RED + "\n- MC322: 'Agora nem preciso mais pegar leve com vocês. Se prepare " + heroi.getName() + ". Não vai ser simples não... Tô aqui pra terminar o que 202 começou (te enlouquecer :)" + Cores.COLOR_RESET);
     }
 

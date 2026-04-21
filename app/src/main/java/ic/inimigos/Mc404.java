@@ -1,6 +1,18 @@
-public class Mc458 extends Inimigo{
+package ic.inimigos;
 
-    public Mc458(String nome, int vida, int escudo, int vidaMax){
+import ic.cartas.CartaBurnout;
+import ic.cartas.CartaDano;
+import ic.cartas.CartaEscudo;
+import ic.cartas.CartaLockin;
+import ic.entidades.Entidade;
+import ic.entidades.Heroi;
+import ic.lógica.Combate;
+import ic.lógica.Tabuleiro;
+import ic.organização.Cores;
+
+public class Mc404 extends Inimigo{
+    
+    public Mc404(String nome, int vida, int escudo, int vidaMax){
         super(nome, vida, escudo, vidaMax);
     }
 
@@ -9,13 +21,13 @@ public class Mc458 extends Inimigo{
                 System.out.println(Cores.COLOR_PURPLE + "\nOlha como vocês crescem... já são veteranos agora \\ (^_^) /" + Cores.COLOR_RESET); 
         System.out.println(Cores.COLOR_CYAN + "Vamos começar a batalha!\nNessa próxima fase, seu oponente será o \n");
         System.out.println("···············································\n" + //
-                        ": __   __  _______  _   ___  _______   _____  :\n" + //
-                        ":|  |_|  ||       || | |   ||       | |  _  | :\n" + //
-                        ":|       ||       || |_|   ||   ____| | |_| | :\n" + //
-                        ":|       ||       ||       ||  |____ |   _   |:\n" + //
-                        ":|       ||      _||___    ||_____  ||  | |  |:\n" + //
-                        ":| ||_|| ||     |_     |   | _____| ||  |_|  |:\n" + //
-                        ":|_|   |_||_______|    |___||_______||_______|:\n" + //
+                        ": __   __  _______  _   ___  _______  _   ___ :\n" + //
+                        ":|  |_|  ||       || | |   ||  _    || | |   |:\n" + //
+                        ":|       ||       || |_|   || | |   || |_|   |:\n" + //
+                        ":|       ||       ||       || | |   ||       |:\n" + //
+                        ":|       ||      _||___    || |_|   ||___    |:\n" + //
+                        ":| ||_|| ||     |_     |   ||       |    |   |:\n" + //
+                        ":|_|   |_||_______|    |___||_______|    |___|:\n" + //
                         "···············································" + Cores.COLOR_RESET);
         System.out.println(Cores.COLOR_RED + "\n- MC322: 'Agora nem preciso mais pegar leve com vocês. Se prepare " + heroi.getName() + ". Não vai ser simples não... Tô aqui pra terminar o que 202 começou (te enlouquecer :)" + Cores.COLOR_RESET);
     }
@@ -117,5 +129,4 @@ public class Mc458 extends Inimigo{
             combate.getInimigo().ganharEscudo(escudo.getEscudo());
         }
     }
-    
 }

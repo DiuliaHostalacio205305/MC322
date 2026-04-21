@@ -1,4 +1,10 @@
+package ic.inimigos;
 import java.util.Scanner;
+
+import ic.entidades.Heroi;
+import ic.lógica.Batalha;
+import ic.lógica.Tabuleiro;
+import ic.organização.Cores;
 
 public class Gerenciador {
     

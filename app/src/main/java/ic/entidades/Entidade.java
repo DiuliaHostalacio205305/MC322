@@ -1,8 +1,13 @@
+package ic.entidades;
 /**
  *Classe elementar que define as estruturas básicas e comuns a todos os tipos de Entidades contidas no jogo.
  */
 import java.util.ArrayList;
 import java.util.List;
+
+import ic.efeito.Burnout;
+import ic.efeito.Efeito;
+import ic.efeito.Lockin;
 
 public abstract class Entidade {
     

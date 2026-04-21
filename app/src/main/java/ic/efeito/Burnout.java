@@ -1,3 +1,9 @@
+package ic.efeito;
+
+import ic.entidades.Entidade;
+import ic.lógica.Combate;
+import ic.lógica.Evento;
+
 /**
  * Efeito análogo a um veneno, tira vida de Entidades progressivamente. 
  * O dano causado é igual ao valor do acúmulo do efeito na Entidade naquele momento, 

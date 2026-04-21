@@ -1,3 +1,8 @@
+package ic.cartas;
+
+import ic.lógica.Combate;
+import ic.lógica.Tabuleiro;
+
 /**
  *Classe elementar que define as estruturas básicas e comuns a todos os tipos de cartas contidas no jogo.
  */

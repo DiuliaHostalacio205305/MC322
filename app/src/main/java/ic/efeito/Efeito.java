@@ -1,3 +1,9 @@
+package ic.efeito;
+
+import ic.entidades.Entidade;
+import ic.lógica.Combate;
+import ic.lógica.Evento;
+
 /**
  *Classe elementar que define as estruturas básicas e comuns a todos os tipos de efeitos contidos no jogo.
  */

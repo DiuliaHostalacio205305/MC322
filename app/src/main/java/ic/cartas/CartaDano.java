@@ -1,3 +1,10 @@
+package ic.cartas;
+
+import ic.entidades.Heroi;
+import ic.inimigos.Inimigo;
+import ic.lógica.Combate;
+import ic.lógica.Evento;
+import ic.lógica.Tabuleiro;
 /**
  *Classe que cria as cartas que causam dano.
  Herda de Carta {@link Carta} e permite causar dano imediato em alguma entidade Inimigo {@link Inimigo}.

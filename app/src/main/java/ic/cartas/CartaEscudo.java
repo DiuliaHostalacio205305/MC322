@@ -1,3 +1,9 @@
+package ic.cartas;
+
+import ic.entidades.Heroi;
+import ic.lógica.Combate;
+import ic.lógica.Tabuleiro;
+
 /**
  *Classe que cria as cartas que dão escudo.
  Herda de Carta {@link Carta} e permite aumentar o escudo de uma entidade Heroi {@link Heroi}.

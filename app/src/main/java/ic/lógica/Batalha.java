@@ -1,6 +1,11 @@
+package ic.lógica;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import ic.entidades.Heroi;
+import ic.inimigos.Inimigo;
+import ic.organização.Cores;
 
 public class Batalha {
     

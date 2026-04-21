@@ -1,4 +1,7 @@
+package ic;
 import java.util.Scanner;
+
+import ic.inimigos.Gerenciador;
 
 public class App {
     /**

@@ -1,3 +1,9 @@
+package ic.efeito;
+
+import ic.entidades.Entidade;
+import ic.lógica.Combate;
+import ic.lógica.Evento;
+
 /**
  * Efeito análogo a força, aumenta o valor do dano causado por Entidades enquanto o efeito durar. 
  * O dano extra causado é igual ao valor do primeiro acúmulo do efeito, ou seja, 

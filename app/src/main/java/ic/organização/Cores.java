@@ -1,3 +1,4 @@
+package ic.organização;
 public class Cores {
     
     //Definidores de cor

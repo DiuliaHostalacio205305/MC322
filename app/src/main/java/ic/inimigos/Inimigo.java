@@ -1,4 +1,10 @@
+package ic.inimigos;
 import java.util.Random;
+
+import ic.entidades.Entidade;
+import ic.entidades.Heroi;
+import ic.lógica.Combate;
+import ic.lógica.Tabuleiro;
 
 /**
  *Classe que cria o inimigo do jogo.

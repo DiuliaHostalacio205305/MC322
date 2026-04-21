@@ -1,3 +1,10 @@
+package ic.cartas;
+
+import ic.efeito.Lockin;
+import ic.entidades.Entidade;
+import ic.lógica.Combate;
+import ic.lógica.Tabuleiro;
+
 /**
  *Classe que cria as cartas associadas ao efeito Lockin (força)) {@link Lockin}.
  Herda de Carta {@link Carta} e permite utilizar o efeito de Lockin em alguma entidade

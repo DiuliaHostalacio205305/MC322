@@ -1,3 +1,10 @@
+package ic.cartas;
+
+import ic.efeito.Burnout;
+import ic.entidades.Entidade;
+import ic.lógica.Combate;
+import ic.lógica.Tabuleiro;
+
 /**
  *Classe que cria as cartas associadas ao efeito Burnout (veneno) {@link Burnout}.
  Herda de Carta {@link Carta} e permite utilizar o efeito de Burnout em alguma entidade

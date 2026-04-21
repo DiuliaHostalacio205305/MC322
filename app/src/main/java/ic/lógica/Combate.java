@@ -1,6 +1,14 @@
+package ic.lógica;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import ic.cartas.Carta;
+import ic.efeito.Efeito;
+import ic.entidades.Entidade;
+import ic.entidades.Heroi;
+import ic.inimigos.Inimigo;
+import ic.organização.Cores;
 
 /**
  * Gerencia o fluxo de batalha entre o Herói e o Inimigo
