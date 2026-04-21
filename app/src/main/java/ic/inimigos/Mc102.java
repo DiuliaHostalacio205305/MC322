@@ -33,7 +33,7 @@ public class Mc102 extends Inimigo {
      */
     @Override
     public void falaRodada1(Heroi heroi){
-                System.out.println(Cores.COLOR_PURPLE + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + heroi.getName() + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + Cores.COLOR_RESET); 
+        System.out.println(Cores.COLOR_PURPLE + "\nÓtima escolha! Olá, bixo... quer dizer, Olá, " + heroi.getName() + "!\nVocê iniciará esta campanha como Entusiasta de Programação!\n\n* Obs: Entusiasta de Programação é aquele que acha que tudo será fácil e lindo apenas porque ele gosta de computadores (doce ilusão) *\n" + Cores.COLOR_RESET); 
         System.out.println(Cores.COLOR_CYAN + "Vamos começar a batalha!\nNessa primeira fase, seu oponente será o \n");
         System.out.println(Prints.MC102);
         System.out.println(Cores.COLOR_RED + "\n- MC102: 'Argh, mais um bixo pra lutar contra mim?! Vocês não cansam de sofrer com Python não?'" + Cores.COLOR_RESET);

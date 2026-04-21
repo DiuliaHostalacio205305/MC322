@@ -3,6 +3,7 @@ package ic.cartas;
 import ic.entidades.Heroi;
 import ic.lógica.Combate;
 import ic.lógica.Tabuleiro;
+import ic.organização.Cores;
 
 /**
  *Classe que cria as cartas que dão escudo.
@@ -11,10 +12,7 @@ import ic.lógica.Tabuleiro;
 public class CartaEscudo extends Carta {
 
     private int escudo;
-    public static final String colorCyan = "\u001B[36m";
-    public static final String colorReset = "\u001B[0m";
-    public static final String colorBlue = "\u001B[94m";
-
+   
     /**
      * Construtor da classe CartaEscudo.
      * @param nome O nome identificador da carta.
@@ -35,11 +33,11 @@ public class CartaEscudo extends Carta {
      */
     @Override
     public void usar(Tabuleiro tabuleiro, Combate combate){
-        System.out.println(colorCyan + "\nUsando a carta: " + getName());
+        System.out.println(Cores.COLOR_CYAN + "\nUsando a carta: " + getName());
         System.out.println("Você recebeu " + getEscudo() + " de escudo!");
         tabuleiro.getHeroi().ganharEscudo(escudo);
         tabuleiro.getHeroi().gastaEnergia(this.getCusto());
-        System.out.println(colorBlue + "Escudo de " + tabuleiro.getHeroi().getName() + ": " + tabuleiro.getHeroi().getEscudo() + "/" + tabuleiro.getHeroi().getescudoMax() + colorReset);
+        System.out.println(Cores.COLOR_BLUE + "Escudo de " + tabuleiro.getHeroi().getName() + ": " + tabuleiro.getHeroi().getEscudo() + "/" + tabuleiro.getHeroi().getescudoMax() + Cores.COLOR_RESET);
     }
 
     /**

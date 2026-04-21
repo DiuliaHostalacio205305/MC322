@@ -5,6 +5,7 @@ import ic.inimigos.Inimigo;
 import ic.lógica.Combate;
 import ic.lógica.Evento;
 import ic.lógica.Tabuleiro;
+import ic.organização.Cores;
 /**
  *Classe que cria as cartas que causam dano.
  Herda de Carta {@link Carta} e permite causar dano imediato em alguma entidade Inimigo {@link Inimigo}.
@@ -12,10 +13,7 @@ import ic.lógica.Tabuleiro;
 public class CartaDano extends Carta{
     
     private int dano;
-    public static final String colorOrange = "\u001B[38;5;208m";
-    public static final String colorReset = "\u001B[0m";
-    public static final String colorRed = "\u001B[31m";
-
+    
     /**
      * Construtor da classe CartaDano.
      * Inicializa os atributos básicos necessários para a carta Dano do jogo.
@@ -39,16 +37,16 @@ public class CartaDano extends Carta{
     public void usar(Tabuleiro tabuleiro, Combate combate){
         //Avisa que o heroi atacou
         combate.notify(Evento.ATAQUE_HEROI);
-        System.out.println(colorOrange + "\nUsando a carta: " + getName());
+        System.out.println(Cores.COLOR_ORANGE + "\nUsando a carta: " + getName());
         System.out.println("Você deu " + (getDano() + combate.getHeroi().getLockin()) + " de dano!");
         combate.getInimigo().receberDano(dano + combate.getHeroi().getLockin());
         tabuleiro.getHeroi().gastaEnergia(this.getCusto());
         if(combate.getInimigo().getVida() <= 0) {
-            System.out.println(colorRed + "Vida de " + combate.getInimigo().getName() + ": 0/" + combate.getInimigo().getvidaMax() + colorReset);
+            System.out.println(Cores.COLOR_RED + "Vida de " + combate.getInimigo().getName() + ": 0/" + combate.getInimigo().getvidaMax() + Cores.COLOR_RESET);
 
         } 
         else{
-            System.out.println(colorRed + "Vida de " + combate.getInimigo().getName() + ": " + combate.getInimigo().getVida() + "/" + combate.getInimigo().getvidaMax() + colorReset);
+            System.out.println(Cores.COLOR_RED + "Vida de " + combate.getInimigo().getName() + ": " + combate.getInimigo().getVida() + "/" + combate.getInimigo().getvidaMax() + Cores.COLOR_RESET);
         }
     }
     

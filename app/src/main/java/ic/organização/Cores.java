@@ -16,6 +16,7 @@ public class Cores {
     public static final String COLOR_ORANGE = "\u001B[38;5;208m";
     public static final String COLOR_PINK = "\u001B[95m";
     public static final String COLOR_GOLD = "\\u001B[33m";
+    public static final String COLOR_BLUE = "\u001B[94m";
 
     //Definidor de negrito
     public static final String NEGRITO = "/u001B[1m";
