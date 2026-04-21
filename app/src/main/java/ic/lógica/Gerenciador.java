@@ -11,8 +11,16 @@ import ic.inimigos.Mc458;
 import ic.inimigos.Mc558;
 import ic.organização.Cores;
 
+/**
+ * Classe que gerencia a criação de objetos que serão utilizados no jogo
+ */
 public class Gerenciador {
     
+    /**
+     * Método que permite a pré inicialização do jogo, chamada na main(), cria todos os personagens, cartas, e nós, estruturando também a árvore usada como mapa
+     * @param scanner O scanner que lê as entradas do terminal
+     * @throws InterruptedException
+     */
     public void comecarJogo(Scanner scanner) throws InterruptedException{
 
         //Pré-definições

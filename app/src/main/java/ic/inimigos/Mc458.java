@@ -10,43 +10,54 @@ import ic.entidades.Inimigo;
 import ic.lógica.Combate;
 import ic.lógica.Tabuleiro;
 import ic.organização.Cores;
+import ic.organização.Prints;
 
+/**
+ * Classe que herda de Inimigo {@link Inimigo} e cria uma espécie de inimigo mais específica, MC458
+ */
 public class Mc458 extends Inimigo{
 
+    /**
+     * Construtor da classe Mc458, um tipo de inimigo do jogo que herda de Inimigo {@link Inimigo}
+     * @param nome O nome do inimigo
+     * @param vida A vida atual do inimigo
+     * @param escudo O escudo atual do inimigo
+     * @param vidaMax A vida máxima, e inicial, do inimigo
+     */
     public Mc458(String nome, int vida, int escudo, int vidaMax){
         super(nome, vida, escudo, vidaMax);
     }
 
+    /**
+     * Permite que cada inimigo tenha uma fala personalizada no começo da rodada 
+     * @param heroi O herói do jogo que poderá sofrer uma ação do inimigo
+     */
     @Override
     public void falaRodada1(Heroi heroi){
-                System.out.println(Cores.COLOR_PURPLE + "\nOlha como vocês crescem... já são veteranos agora \\ (^_^) /" + Cores.COLOR_RESET); 
+                System.out.println(Cores.COLOR_PURPLE + "\nJá estão na metade do curso? Uau, não achei que iam chegar tão longe" + Cores.COLOR_RESET); 
         System.out.println(Cores.COLOR_CYAN + "Vamos começar a batalha!\nNessa próxima fase, seu oponente será o \n");
-        System.out.println("···············································\n" + //
-                        ": __   __  _______  _   ___  _______   _____  :\n" + //
-                        ":|  |_|  ||       || | |   ||       | |  _  | :\n" + //
-                        ":|       ||       || |_|   ||   ____| | |_| | :\n" + //
-                        ":|       ||       ||       ||  |____ |   _   |:\n" + //
-                        ":|       ||      _||___    ||_____  ||  | |  |:\n" + //
-                        ":| ||_|| ||     |_     |   | _____| ||  |_|  |:\n" + //
-                        ":|_|   |_||_______|    |___||_______||_______|:\n" + //
-                        "···············································" + Cores.COLOR_RESET);
-        System.out.println(Cores.COLOR_RED + "\n- MC322: 'Agora nem preciso mais pegar leve com vocês. Se prepare " + heroi.getName() + ". Não vai ser simples não... Tô aqui pra terminar o que 202 começou (te enlouquecer :)" + Cores.COLOR_RESET);
+        System.out.println(Prints.MC458);
+        System.out.println(Cores.COLOR_RED + "\n- MC458: 'Agora nem preciso mais pegar leve com vocês. Se prepare " + heroi.getName() + ". Esse vai ser um desafio maior do que imagina" + Cores.COLOR_RESET);
     }
 
+    /**
+     * Imprime a ação do inimigo calculada pela intenção, que permite avisar ao jogador a intenção do inimigo no começo da rodada
+     * @param acao
+     */
     @Override
     public void imprimeAcaoInimigo(int acao){
         System.out.println("\n");
         if(acao == 0){
-            System.out.println(Cores.COLOR_RED + "- MC322: 'Vou te fazer usar o gradle e você vai tomar 6 de dano ein, abre o olho'" + Cores.COLOR_RESET);
+            System.out.println(Cores.COLOR_RED + "- MC458: 'Vou te fazer usar o gradle e você vai tomar 6 de dano ein, abre o olho'" + Cores.COLOR_RESET);
         }
         if(acao == 1){
-            System.out.println(Cores.COLOR_RED + "- MC322: 'Vou te fazer tentar entender polimorfismo e encapsulamento ao mesmo tempo e te deixar com 4 pontos de burnout ein'" + Cores.COLOR_RESET);
+            System.out.println(Cores.COLOR_RED + "- MC458: 'Vou te fazer tentar entender polimorfismo e encapsulamento ao mesmo tempo e te deixar com 4 pontos de burnout ein'" + Cores.COLOR_RESET);
         }
         if(acao == 2){
-            System.out.println(Cores.COLOR_RED + "- MC322: 'Vou me deixar de Lock-In, com 3 pontos a mais de força, ein'" + Cores.COLOR_RESET);
+            System.out.println(Cores.COLOR_RED + "- MC458: 'Vou me deixar de Lock-In, com 4 pontos a mais de força, ein'" + Cores.COLOR_RESET);
         }
         if(acao == 3){
-            System.out.println(Cores.COLOR_RED+  "- MC322: 'Vou me dar 3 de escudo, ein'" + Cores.COLOR_RESET);
+            System.out.println(Cores.COLOR_RED+  "- MC458: 'Vou me dar 3 de escudo, ein'" + Cores.COLOR_RESET);
         }
     }
 
@@ -64,67 +75,27 @@ public class Mc458 extends Inimigo{
             CartaDano ataque = new CartaDano("Instalar o gradle", "Você agora precisa utilizar o gradle, mas o GitHub ignora algumas pastas quando você vai dar pull e seu computador não aguenta rodar o gradle", 0, 6);
             heroi.receberDano(ataque.getDano() + combate.getInimigo().getLockin()); //o dano que o herói recebe é o dano da carta + o lockin acumulado
             System.out.println(Cores.COLOR_RED + "O inimigo está te atacando com 'usar Gradle'");
-            System.out.println( "··································································\n" + //
-                                ":   _____    ______       ____     ______     _____        _____ :\n" + //
-                                ":  / ___ \\  (   __ \\     (    )   (_  __ \\   (_   _)      / ___/ :\n" + //
-                                ": / /   \\_)  ) (__) )    / /\\ \\     ) ) \\ \\    | |       ( (__   :\n" + //
-                                ":( (  ____  (    __/    ( (__) )   ( (   ) )   | |        ) __)  :\n" + //
-                                ":( ( (__  )  ) \\ \\  _    )    (     ) )  ) )   | |   __  ( (     :\n" + //
-                                ": \\ \\__/ /  ( ( \\ \\_))  /  /\\  \\   / /__/ /  __| |___) )  \\ \\___ :\n" + //
-                                ":  \\____/    )_) \\__/  /__(  )__\\ (______/   \\________/    \\____\\:\n" + //
-                                "··································································");
+            System.out.println(Prints.GRADLE);
             System.out.println("Dano recebido: " + (ataque.getDano() + combate.getInimigo().getLockin()) + Cores.COLOR_RESET);
             //assim n vai dar pra ele avisar o dano e tudo 
         }
         if(acao == 1){
             System.out.println(Cores.COLOR_ORANGE + "\nO inimigo está usando burnout em você");
-            System.out.println("⠀⠀⠀⠀⠀⠀⢱⣆⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠈⣿⣷⡀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⢸⣿⣿⣷⣧⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⡀⢠⣿⡟⣿⣿⣿⡇⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⣳⣼⣿⡏⢸⣿⣿⣿⢀⠀\r\n" + //
-                                "⠀⠀⠀⣰⣿⣿⡿⠁⢸⣿⣿⡟⣼⡆\r\n" + //
-                                "⢰⢀⣾⣿⣿⠟⠀⠀⣾⢿⣿⣿⣿⣿\r\n" + //
-                                "⢸⣿⣿⣿⡏⠀⠀⠀⠃⠸⣿⣿⣿⡿\r\n" + //
-                                "⢳⣿⣿⣿⠀⠀⠀⠀⠀⠀⢹⣿⡿⡁\r\n" + //
-                                "⠀⠹⣿⣿⡄⠀⠀⠀⠀⠀⢠⣿⡞⠁\r\n" + //
-                                "⠀⠀⠈⠛⢿⣄⠀⠀⠀⣠⠞⠋⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀");
+            System.out.println(Prints.BURNOUT);
             System.out.println("Você recebeu o efeito 'burnout' com acúmulo por + 4 rodadas" + Cores.COLOR_RESET);
             CartaBurnout burnout = new CartaBurnout("Entender polimorfismo e encapsulamento ao mesmo tempo", "Você vai ficar boas horas tentando entender e adivinha? Não vai conseguir...", 0, 4, heroi);
             burnout.usar(tabuleiro, combate);
         }
         if(acao == 2){
             System.out.println(Cores.COLOR_ORANGE + "\nO inimigo está usando força  em si mesmo");
-            System.out.println("   ┌──────────────┐                          ┌─────────────┐   \r\n" + //
-                                "   │██████████████│                          │█████████████│   \r\n" + //
-                                "┌──┐██████████████│                          │█████████████┌──┐\r\n" + //
-                                "│██│██████████████│══════════════════════════│█████████████│██│\r\n" + //
-                                "│██│██████████████│══════════════════════════│█████████████│██│\r\n" + //
-                                "└──┘██████████████│                          │█████████████└──┘\r\n" + //
-                                "   │██████████████│                          │█████████████│   \r\n" + //
-                                "   └──────────────┘                          └─────────────┘   ");
-            System.out.println("Nova força do inimigo:" + (getLockin() + 3) + "\nAgora os ataques do inimigo darão 3 a mais de dano" + Cores.COLOR_RESET);
-            CartaLockin Lockin = new CartaLockin("Não pode usar GitHub", "A partir de agora o inimigo te proíbe de usar o GitHub e você precisa copiar e colar cada pasta da sua dupla", 0, 3, combate.getInimigo());
+            System.out.println(Prints.LOCKIN);
+            System.out.println("Nova força do inimigo:" + (getLockin() + 3) + "\nAgora os ataques do inimigo darão 4 a mais de dano" + Cores.COLOR_RESET);
+            CartaLockin Lockin = new CartaLockin("Não pode usar GitHub", "A partir de agora o inimigo te proíbe de usar o GitHub e você precisa copiar e colar cada pasta da sua dupla", 0, 4, combate.getInimigo());
             Lockin.usar(tabuleiro, combate);
         }
         if(acao == 3){
             System.out.println(Cores.COLOR_RED + "O inimigo está usando escudo em si mesmo");
-            System.out.println( "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⣿⣿⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⣤⣤⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣤⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n" + //
-                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+            System.out.println(Prints.ESCUDO);
             System.out.println("Novo escudo do inimigo: 3/3" + Cores.COLOR_RESET);
             CartaEscudo escudo = new CartaEscudo("Muitos arquivos", "O inimigo mistura todas as suas pastas no VsCode e você precisa desembaralhar todas elas", 0, 3);
             combate.getInimigo().ganharEscudo(escudo.getEscudo());

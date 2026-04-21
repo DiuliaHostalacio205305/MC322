@@ -34,15 +34,7 @@ public class Tabuleiro {
     public Heroi getHeroi(){
         return heroi;
     }
-
-    ///**
-    // * Acessa e retorna o inimigo do jogo
-    // * @return O inimigo do jogo
-    // */
-    //public Inimigo getInimigo(){
-    //    return inimigo;
-    //}
-
+    
     /**
      * Inicia a partida, instanciando as entidades necessárias e criando todas as cartas do baralho disponíveis.
      */
