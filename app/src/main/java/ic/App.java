@@ -1,7 +1,7 @@
 package ic;
 import java.util.Scanner;
 
-import ic.inimigos.Gerenciador;
+import ic.lógica.Gerenciador;
 
 public class App {
     /**

@@ -6,6 +6,7 @@ import ic.cartas.CartaEscudo;
 import ic.cartas.CartaLockin;
 import ic.entidades.Entidade;
 import ic.entidades.Heroi;
+import ic.entidades.Inimigo;
 import ic.lógica.Combate;
 import ic.lógica.Tabuleiro;
 import ic.organização.Cores;

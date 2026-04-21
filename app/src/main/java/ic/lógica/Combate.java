@@ -7,7 +7,7 @@ import ic.cartas.Carta;
 import ic.efeito.Efeito;
 import ic.entidades.Entidade;
 import ic.entidades.Heroi;
-import ic.inimigos.Inimigo;
+import ic.entidades.Inimigo;
 import ic.organização.Cores;
 
 /**

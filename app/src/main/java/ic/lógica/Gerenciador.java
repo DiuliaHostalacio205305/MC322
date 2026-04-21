@@ -1,9 +1,14 @@
-package ic.inimigos;
+package ic.lógica;
 import java.util.Scanner;
 
 import ic.entidades.Heroi;
-import ic.lógica.Batalha;
-import ic.lógica.Tabuleiro;
+import ic.inimigos.Mc102;
+import ic.inimigos.Mc202;
+import ic.inimigos.Mc322;
+import ic.inimigos.Mc358;
+import ic.inimigos.Mc404;
+import ic.inimigos.Mc458;
+import ic.inimigos.Mc558;
 import ic.organização.Cores;
 
 public class Gerenciador {

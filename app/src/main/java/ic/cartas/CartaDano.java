@@ -1,7 +1,7 @@
 package ic.cartas;
 
 import ic.entidades.Heroi;
-import ic.inimigos.Inimigo;
+import ic.entidades.Inimigo;
 import ic.lógica.Combate;
 import ic.lógica.Evento;
 import ic.lógica.Tabuleiro;

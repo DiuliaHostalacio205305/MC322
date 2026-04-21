@@ -1,8 +1,6 @@
-package ic.inimigos;
+package ic.entidades;
 import java.util.Random;
 
-import ic.entidades.Entidade;
-import ic.entidades.Heroi;
 import ic.lógica.Combate;
 import ic.lógica.Tabuleiro;
 
@@ -53,13 +51,10 @@ public class Inimigo extends Entidade{
      * @param tabuleiro Classe que contém todas as "peças" do jogo, herói, inimigo e todas as cartas existentes.
     */
     public void atacar(Entidade heroi, Combate combate, Tabuleiro tabuleiro){}
-   
+
     public void falaRodada1(Heroi heroi){};
 
     public void imprimeAcaoInimigo(int acao){};
 
 
 }
-
-
-//Ideias de nomes de ataques: erro de compilação, esqueceu o ;, deu time limit, caiu num loop infinito
