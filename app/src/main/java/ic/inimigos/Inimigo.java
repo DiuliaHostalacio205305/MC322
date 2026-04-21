@@ -54,8 +54,16 @@ public class Inimigo extends Entidade{
     */
     public void atacar(Entidade heroi, Combate combate, Tabuleiro tabuleiro){}
    
+    /**
+     * Permite que cada inimigo tenha uma fala personalizada no começo da rodada 
+     * @param heroi O herói do jogo que poderá sofrer uma ação do inimigo
+     */
     public void falaRodada1(Heroi heroi){};
 
+    /**
+     * Imprime a ação do inimigo calculada pela intenção, que permite avisar ao jogador a intenção do inimigo no começo da rodada
+     * @param acao
+     */
     public void imprimeAcaoInimigo(int acao){};
 
 

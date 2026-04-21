@@ -16,6 +16,10 @@ public class Mc322 extends Inimigo {
         super(nome, vida, escudo, vidaMax);
     }
 
+    /**
+     * Permite que cada inimigo tenha uma fala personalizada no começo da rodada 
+     * @param heroi O herói do jogo que poderá sofrer uma ação do inimigo
+     */
     @Override
     public void falaRodada1(Heroi heroi){
                 System.out.println(Cores.COLOR_PURPLE + "\nOlha como vocês crescem... já são veteranos agora \\ (^_^) /" + Cores.COLOR_RESET); 
@@ -29,6 +33,10 @@ public class Mc322 extends Inimigo {
         System.out.println(Cores.COLOR_RED + "\n- MC322: 'Agora nem preciso mais pegar leve com vocês. Se prepare " + heroi.getName() + ". Não vai ser simples não... Tô aqui pra terminar o que 202 começou (te enlouquecer :)" + Cores.COLOR_RESET);
     }
 
+    /**
+     * Imprime a ação do inimigo calculada pela intenção, que permite avisar ao jogador a intenção do inimigo no começo da rodada
+     * @param acao
+     */
     @Override
     public void imprimeAcaoInimigo(int acao){
         System.out.println("\n");

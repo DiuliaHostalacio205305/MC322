@@ -16,6 +16,10 @@ public class Mc202 extends Inimigo {
         super(nome, vida, escudo, vidaMax);
     }
 
+    /**
+     * Permite que cada inimigo tenha uma fala personalizada no começo da rodada 
+     * @param heroi O herói do jogo que poderá sofrer uma ação do inimigo
+     */
     @Override
     public void falaRodada1(Heroi heroi){
         System.out.println(Cores.COLOR_PURPLE + "\nOlha... Parabéns, agora você não é mais bixo... já pode ser chamado de projeto de programador! Falta muito ainda pra realmente ser um programador... mas tudo bem, podemos começar o próximo desafio " + heroi.getName() + "? Eu me prepararia se fosse você..." + Cores.COLOR_RESET); 
@@ -38,6 +42,10 @@ public class Mc202 extends Inimigo {
         System.out.println(Cores.COLOR_RED + "\n- MC202: 'Coitado, lá vem um que acha que já sabe programar achando que vai ser fácil passar por mim HAHAHAHA (risada maléfica)'" + Cores.COLOR_RESET);
     }
 
+    /**
+     * Imprime a ação do inimigo calculada pela intenção, que permite avisar ao jogador a intenção do inimigo no começo da rodada
+     * @param acao
+     */
     @Override
     public void imprimeAcaoInimigo(int acao){
         System.out.println("\n");
