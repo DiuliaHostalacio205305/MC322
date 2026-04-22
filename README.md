@@ -14,9 +14,12 @@
 
     - Após a escolha do nome do personagem, a batalha contra o primeiro adversário, MC102, começa. O intuito deste jogo é retratar de forma lúdica o caminho que os alunos devem tomar, avançando de adversário em adversário, ou seja, de disciplina em disciplina, a fim de finalmente alcançar o diploma de 'Computeiro'.
 
+    - O Mapa e Progressão (Tarefa 5): O jogo agora conta com um Mapa de Eventos estruturado em árvore. O jogador deve navegar por diferentes semestres, escolhendo caminhos que levam a batalhas contra disciplinas específicas. O objetivo final é atravessar todo o mapa até a formatura. Conforme avança no mapa, enfrentará adversários como MC102, MC202, MC322, MC358, MC404, MC458 e MC558, cada um representando os desafios de sua respectiva disciplina.
+
         ### Dentro das Batalhas:
         - O inimigo começa cada turno anunciando sua intenção, qual ação será realizada.
-        - As batalhas funcionam em um esquema de turnos, onde o personagem começa atacando, podendo escolher entre 3 tipos de ações diferentes: dar dano, receber um escudo, ou aplicar um efeito; de acordo com as cartas que forem compradas da pilha e que estiverem na mão do jogador - quantas vezes quiser - até sua energia acabar, com o intuito de derrotar o inimigo, no caso dessa implementação do jogo, MC102.
+        - As batalhas funcionam em um esquema de turnos, onde o personagem começa atacando, podendo escolher entre 3 tipos de ações diferentes: dar dano, receber um escudo, ou aplicar um efeito; de acordo com as cartas que forem compradas da pilha e que estiverem na mão do jogador - quantas vezes quiser - até sua energia acabar, com o intuito de derrotar o inimigo.
+        - Pular/Encerrar Turno: Quando não quiser ou não puder mais jogar cartas, o jogador deve digitar 0 (zero) no terminal. Isso finaliza a ação do herói, descarta a mão atual e passa a vez para o inimigo.
         - As Cartas de Dano e Escudo são temáticas e relacionadas com os artifícios usados e necessários na vida real para permitir a aprovação dos alunos nas disciplinas, como, ir em monitorias e baixar o VSCode, tornando a experiência do jogo ainda mais imersiva.
         - O dano sofrido pelo personagem ocorre a partir de ações das disciplinas (nesse caso, 'time limit'), que representam dificuldades características, que os estudantes passam durante os semestres.
         - Após cada turno, o personagem terá seu escudo zerado, sua cafeína recarregada e sua mão completamente descartada.
@@ -29,8 +32,8 @@
         
         ### Fim da Batalha:
         - O fim se dá de duas formas:
-            . Caso o jogador ganhe, ou seja, mate o inimigo antes de perder toda a sua vida, significa que o calouro foi aprovado e passou na matéria!
-            . Caso o jogador perca, ou seja, perca sua vida antes de matar o inimigo, significa que o calouro foi reprovado e precisará refazer a matéria.
+            . Caso o jogador ganhe, ou seja, mate o inimigo antes de perder toda a sua vida, significa que o calouro foi aprovado e passou na matéria! Assim avançando para o próximo nó do mapa até concluir o curso.
+            . Caso o jogador perca, ou seja, perca sua vida antes de matar o inimigo, significa que o aluno foi reprovado.
 
 ## Novas Cartas (Tarefa 4):
 O baralho foi expandido com 5 novas cartas:
@@ -50,6 +53,12 @@ O projeto agora utiliza o Gradle para automação de build e gerenciamento de ta
     
     - Para gerar a documentação tecnica, faça:
         ```./gradlew javadoc```
+
+    - Para gerar executar os testes, faça:
+        ```./gradlew test```
+
+    - Para gerar o relatório de cobertura dos testes (JaCoCo), faça:
+        ```./gradlew jacocoTestReport```
 
 Aproveite a experiência imersiva deste jogo incrível!
 
