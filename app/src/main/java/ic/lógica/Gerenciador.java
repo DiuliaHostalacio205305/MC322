@@ -29,15 +29,15 @@ public class Gerenciador {
         
         //Pré definições da árvore mapa
         //Nível 1
-        Batalha raiz = new Batalha(new Mc102("MC102", 25, 0, 25));
+        Batalha raiz = new Batalha(new Mc102("MC102", 8, 0, 8));
         //Nível 2
-        Batalha no2 = new Batalha(new Mc202("MC202", 50, 1, 50));
-        Batalha no3 = new Batalha(new Mc358("MC358", 35, 0, 35));
+        Batalha no2 = new Batalha(new Mc202("MC202", 20, 1, 20));
+        Batalha no3 = new Batalha(new Mc358("MC358", 12, 0, 12));
         //Nível 3
-        Batalha no4 = new Batalha(new Mc322("MC322", 30, 0, 30));
-        Batalha no5 = new Batalha(new Mc404("MC404", 35, 0, 35));
-        Batalha no6 = new Batalha(new Mc458("MC458", 40, 0, 40));
-        Batalha no7 = new Batalha(new Mc558("MC558", 42, 0, 42));
+        Batalha no4 = new Batalha(new Mc322("MC322", 10, 0, 12));
+        Batalha no5 = new Batalha(new Mc404("MC404", 25, 0, 25));
+        Batalha no6 = new Batalha(new Mc458("MC458", 22, 0, 22));
+        Batalha no7 = new Batalha(new Mc558("MC558", 25, 0, 25));
         
         //Cria a árvore do mapa e seus respectivos nós
         raiz.adicionarNo(no2);

@@ -77,7 +77,6 @@ public class Mc102 extends Inimigo {
             System.out.println(Cores.COLOR_RED + "O inimigo está te atacando com um time limit");
             System.out.println(Prints.TIME_LIMIT);
             System.out.println("Dano recebido: " + (ataque.getDano() + combate.getInimigo().getLockin()) + Cores.COLOR_RESET);
-            //assim n vai dar pra ele avisar o dano e tudo 
         }
         if(acao == 1){
             System.out.println(Cores.COLOR_ORANGE + "\nO inimigo está usando burnout em você");
